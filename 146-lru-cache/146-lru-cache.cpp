@@ -1,77 +1,35 @@
 class LRUCache {
 public:
-    class node {
-        public:
-            int key;
-            int val;
-            node* next;
-            node* prev;
-        node(int _key, int _val) {
-            key = _key;
-            val = _val; 
-        }
-    };
-    
-    node* head = new node(-1,-1);
-    node* tail = new node(-1,-1);
-    
-    int cap;
-    unordered_map<int, node*>m;
-    
     LRUCache(int capacity) {
-        cap = capacity;    
-        head->next = tail;
-        tail->prev = head;
+        cap = capacity;
     }
     
-    void addnode(node* newnode) {
-        node* temp = head->next;
-        newnode->next = temp;
-        newnode->prev = head;
-        head->next = newnode;
-        temp->prev = newnode;
-    }
-    
-    void deletenode(node* delnode) {
-        node* delprev = delnode->prev;
-        node* delnext = delnode->next;
-        delprev->next = delnext;
-        delnext->prev = delprev;
-    }
-    
-    int get(int key_) {
-        if (m.find(key_) != m.end()) {
-            node* resnode = m[key_];
-            int res = resnode->val;
-            m.erase(key_);
-            deletenode(resnode);
-            addnode(resnode);
-            m[key_] = head->next;
-            return res; 
+    int get(int key) {
+        if(!ump.count(key)) {
+            return -1;
         }
-    
-        return -1;
+        l.splice(l.begin(), l, ump[key]);
+        ump[key] = l.begin();
+        return ump[key]->second;
     }
     
-    void put(int key_, int value) {
-        if(m.find(key_) != m.end()) {
-            node* existingnode = m[key_];
-            m.erase(key_);
-            deletenode(existingnode);
+    void put(int key, int value) {
+        if(get(key) != -1) {
+            ump[key]->second = value;
+            return;
         }
-        if(m.size() == cap) {
-          m.erase(tail->prev->key);
-          deletenode(tail->prev);
+        if(ump.size() == cap) {
+            ump.erase(l.back().first);
+            l.pop_back();
         }
-        
-        addnode(new node(key_, value));
-        m[key_] = head->next; 
+        l.emplace_front(make_pair(key, value));
+        ump[key] = l.begin();
     }
+private:
+    int cap;
+    unordered_map<int, list<pair<int, int>>::iterator> ump;
+    list<pair<int, int>> l; 
 };
-
-    
-
-
 /**
  * Your LRUCache object will be instantiated and called as such:
  * LRUCache* obj = new LRUCache(capacity);
