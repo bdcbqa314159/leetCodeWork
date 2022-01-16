@@ -1,35 +1,49 @@
 class LRUCache {
+    int size;
+    list<pair<int, int>>ls;
+    unordered_map<int, list<pair<int, int>>::iterator> hash;
 public:
-    LRUCache(int capacity) {
-        cap = capacity;
+    LRUCache(int cap) {
+        size = cap;
     }
     
     int get(int key) {
-        if(!ump.count(key)) {
+        if(hash.find(key) == hash.end())
             return -1;
-        }
-        l.splice(l.begin(), l, ump[key]);
-        ump[key] = l.begin();
-        return ump[key]->second;
+        
+        auto it = hash[key];
+        ls.push_back({key, it->second});
+        ls.erase(it);
+        auto lit = ls.end();
+        lit--;
+        hash[key] = lit;
+        
+        return lit->second;
     }
     
     void put(int key, int value) {
-        if(get(key) != -1) {
-            ump[key]->second = value;
+        if(hash.find(key) != hash.end()) {
+            ls.erase(hash[key]);
+            ls.push_back({key, value});
+            auto it = ls.end();
+            it--;
+            hash[key]=it;
             return;
         }
-        if(ump.size() == cap) {
-            ump.erase(l.back().first);
-            l.pop_back();
+        
+        if(hash.size() == size) {
+            auto it = ls.front().first;
+            ls.pop_front();
+            hash.erase(it);
         }
-        l.emplace_front(make_pair(key, value));
-        ump[key] = l.begin();
+        
+        ls.push_back({key, value});
+        auto it = ls.end();
+        it--;
+        hash[key]=it;
     }
-private:
-    int cap;
-    unordered_map<int, list<pair<int, int>>::iterator> ump;
-    list<pair<int, int>> l; 
 };
+
 /**
  * Your LRUCache object will be instantiated and called as such:
  * LRUCache* obj = new LRUCache(capacity);
