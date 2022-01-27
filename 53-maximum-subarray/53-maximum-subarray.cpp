@@ -8,7 +8,7 @@ public:
         
         for (int i = 1; i<n; i++){
             maxNow = max(maxNow+nums[i], nums[i]);
-            maxSoFar = max(maxSoFar, maxNow);
+            maxSoFar = max(maxNow, maxSoFar);
         }
         
         return maxSoFar;
