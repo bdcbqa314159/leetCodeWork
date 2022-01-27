@@ -2,25 +2,26 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         
-        unordered_map<int,int> umap;
+        int goal{};
+        int n = nums.size();
         
-        vector<int> answer(2,0);
+        vector<int> ans(2,0);
         
-        int n =  nums.size(), goal{};
+        unordered_map<int, int> umap;
         
-        for (int i =0; i<n; i++){
+        for (int i = 0; i<n; i++){
             goal = target-nums[i];
+            
             if (umap.find(goal) != umap.end()){
-                
-                answer[0] = umap[goal];
-                answer[1] = i;
-                
+                ans[0] = umap[goal];
+                ans[1] = i;
             }
             
-            umap[nums[i]] = i;
+            
+            umap[nums[i]] = i;  
         }
-        
-        return answer;
+        return ans;
         
     }
 };
+
