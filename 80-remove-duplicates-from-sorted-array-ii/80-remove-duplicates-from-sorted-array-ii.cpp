@@ -12,9 +12,7 @@ public:
         while(j<n){
             if (!(nums[j] == nums[i] && nums[j] == nums[i-1])){
                 i++;
-                int temp = nums[i];
-                nums[i] = nums[j];
-                nums[j] = temp;
+                swap(nums[i], nums[j]);
             }
             j++;
         }
