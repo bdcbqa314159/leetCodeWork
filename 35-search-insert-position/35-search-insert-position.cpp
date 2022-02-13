@@ -4,9 +4,6 @@ public:
         
         int n = nums.size()-1;
         
-//         if (target<nums[0]) return 0;
-//         if (target>nums[n]) return n+1;
-        
         int left = 0;
         int right = n;
         
