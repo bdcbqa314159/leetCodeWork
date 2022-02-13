@@ -2,16 +2,16 @@ class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
         
+        int currMax = nums[0], maxSoFar = nums[0];
+        
         int n = nums.size();
-        int localMax = nums[0];
-        int globalMax = nums[0];
         
         for (int i = 1; i<n; i++){
-            localMax = max(nums[i], localMax+nums[i]);
-            globalMax = max(localMax, globalMax);
+            currMax = max(currMax+nums[i], nums[i]);
+            maxSoFar = max(maxSoFar, currMax);
         }
         
-        return globalMax;
+        return maxSoFar;
         
     }
 };
