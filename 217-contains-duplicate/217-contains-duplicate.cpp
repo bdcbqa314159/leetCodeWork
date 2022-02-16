@@ -4,10 +4,10 @@ public:
         
         unordered_map<int, int> umap;
         
-        for (const int& num: nums){
-            
-            if (umap.find(num) == umap.end())
+        for (const auto &num : nums){
+            if (umap.find(num) == umap.end()){
                 umap[num] = 1;
+            }
             
             else return true;
         }
