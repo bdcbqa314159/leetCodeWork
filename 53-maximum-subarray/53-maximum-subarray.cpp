@@ -2,9 +2,7 @@ class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
         
-        int currMax = nums[0], maxSoFar = nums[0];
-        
-        int n = nums.size();
+        int n = nums.size(), maxSoFar = nums[0], currMax = nums[0];
         
         for (int i = 1; i<n; i++){
             currMax = max(currMax+nums[i], nums[i]);
