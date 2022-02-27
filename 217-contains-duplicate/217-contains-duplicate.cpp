@@ -3,16 +3,18 @@ public:
     bool containsDuplicate(vector<int>& nums) {
         
         unordered_map<int, int> umap;
-        for(auto num: nums){
-            
-            if (umap.find(num) != umap.end()){
+        
+        for (int num : nums){
+            if(umap.find(num)!=umap.end()){
                 return true;
             }
-            else
-                umap[num] = 1;
+            
+            else{
+                umap[num]=1;
+            }
         }
         
         return false;
-
+        
     }
 };
