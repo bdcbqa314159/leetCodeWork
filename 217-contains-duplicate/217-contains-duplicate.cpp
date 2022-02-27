@@ -2,17 +2,14 @@ class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
         
-        unordered_map<int,int> umap;
+        unordered_map<int, int> umap;
         
-        int n = nums.size();
-        
-        for (int i = 0; i<n; i++){
-            if (umap.find(nums[i]) != umap.end()){
+        for (int& num: nums){
+            if (umap.find(num)!= umap.end()){
                 return true;
             }
-            
             else{
-                umap[nums[i]] = 1;
+                umap[num]=1;
             }
         }
         
