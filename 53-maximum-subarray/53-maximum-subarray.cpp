@@ -7,13 +7,10 @@ public:
         int currMax = nums[0];
         
         for (int i = 1; i<n; i++){
-            
             currMax = max(currMax+nums[i], nums[i]);
-            maxSoFar = max(currMax, maxSoFar);
+            maxSoFar = max(maxSoFar, currMax);
         }
         
         return maxSoFar;
     }
 };
-
- 
