@@ -9,22 +9,23 @@ public:
         
         while(left<=right){
             
-            med = left+(right-left)/2;
+            med = left + (right-left)/2;
             
             if (nums[med] == target){
                 return med;
             }
             
-            else if (target < nums[med]){
-                
-                right = med-1;
+            else if(nums[med]<target){
+                left = med+1;
             }
             
             else{
-                left = med+1;
+                right = med-1;
             }
         }
         
         return -1;
+        
+        
     }
 };
