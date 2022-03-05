@@ -4,7 +4,11 @@ public:
         
         int n = nums.size();
         
-        int left = 0, right = n-1, place = n-1, a{}, b{};
+        int left = 0;
+        int right = n-1;
+        int last = n-1;
+        
+        int a{}, b{};
         
         vector<int> result(n,0);
         
@@ -14,17 +18,20 @@ public:
             b = nums[right]*nums[right];
             
             if (a<=b){
-                result[place] = b;
+                result[last] = b;
+                last--;
                 right--;
-                place--;
             }
             
             else{
-                result[place] = a;
+                result[last] = a;
+                last--;
                 left++;
-                place--;
             }
+            
         }
+        
         return result;
+        
     }
 };
