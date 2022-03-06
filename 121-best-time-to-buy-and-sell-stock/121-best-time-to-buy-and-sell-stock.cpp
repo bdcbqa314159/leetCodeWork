@@ -3,8 +3,7 @@ public:
     int maxProfit(vector<int>& prices) {
         int profit = 0, buyPrice = INT_MAX;
         
-        for (int price:prices){
-            
+        for (int price: prices){
             if (buyPrice>price){
                 buyPrice = price;
             }
