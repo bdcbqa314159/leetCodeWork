@@ -2,24 +2,25 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& numbers, int target) {
         
-        vector<int> ans(2,0);
-        int left = 0, right = numbers.size()-1;
+        int n = numbers.size();
+        int l = 0, r = n-1;
         
-        while(left<=right){
-            int sum = numbers[left]+numbers[right];
+        vector<int> ans(2,0);
+        
+        while(l<=r){
             
-            if (sum>target) right--;
-            else if(sum<target) left++;
+            int sum = numbers[l]+numbers[r];
+            if (sum>target) r--;
+            else if(sum<target) l++;
             
             else{
-                ans[0] = left+1;
-                ans[1] = right+1;
+                ans[0] = l+1;
+                ans[1] = r+1;
                 break;
             }
         }
+        
         return ans;
-    
+        
     }
 };
-
-// 
