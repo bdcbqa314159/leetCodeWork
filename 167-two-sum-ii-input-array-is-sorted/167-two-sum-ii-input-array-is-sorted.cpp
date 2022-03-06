@@ -5,22 +5,20 @@ public:
         vector<int> ans(2,0);
         int left = 0, right = numbers.size()-1;
         
-        while (left<=right){
+        while(left<=right){
             int sum = numbers[left]+numbers[right];
             
             if (sum>target) right--;
-            else if (sum<target) left++;
+            else if(sum<target) left++;
             
             else{
                 ans[0] = left+1;
                 ans[1] = right+1;
-                return ans;
+                break;
             }
         }
-        ans[0] = left+1;
-        ans[1] = right+1;
         return ans;
-        
+    
     }
 };
 
