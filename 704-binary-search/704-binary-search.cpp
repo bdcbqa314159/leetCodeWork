@@ -10,7 +10,7 @@ public:
             else if (nums[k]<target) i = k+1;
             else j = k-1;
         }
-    
+        
         return -1;
     }
 };
