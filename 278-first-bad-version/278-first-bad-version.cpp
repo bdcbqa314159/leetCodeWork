@@ -9,7 +9,6 @@ public:
         
         while(i<=j){
             k = i+(j-i)/2;
-            
             if (isBadVersion(k)) j = k-1;
             else i = k+1;
         }
