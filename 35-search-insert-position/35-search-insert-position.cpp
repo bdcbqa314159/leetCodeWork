@@ -5,11 +5,11 @@ public:
         
         while(i<=j){
             k = i+(j-i)/2;
+            
             if (nums[k] == target) return k;
-            else if (nums[k]<target) i = k+1;
+            else if(nums[k]<target) i = k+1;
             else j = k-1;
         }
-        
         
         return i;
     }
