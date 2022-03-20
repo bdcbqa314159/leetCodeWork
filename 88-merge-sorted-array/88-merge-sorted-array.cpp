@@ -10,19 +10,17 @@ public:
                 last--;
                 m--;
             }
-            
             else{
                 nums1[last] = nums2[n-1];
                 last--;
                 n--;
             }
         }
-        
         while(n>0){
             nums1[last] = nums2[n-1];
             last--;
             n--;
         }
-
+        
     }
 };
