@@ -5,18 +5,17 @@ class Solution {
 public:
     int firstBadVersion(int n) {
         
-        int left = 1;
-        int right = n;
+        int i = 1, j = n, k = 0;
         
-        while(left <= right){
-            int med = left + (right-left)/2;
-            
-            if (isBadVersion(med)) right = med-1;
-            
-            else left = med +1;
+        while(i<=j){
+            k = i+(j-i)/2;
+            if (isBadVersion(k)) j = k-1;
+            else i = k+1;
         }
         
-        return left;
+        return i;
+        
+        
         
     }
 };
