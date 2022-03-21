@@ -4,14 +4,14 @@ public:
         
         int m = mat.size(), n = mat[0].size();
         
-        if (m*n != r*c) return mat;
+        if (r*c != m*n) return mat;
         
         else{
-            vector<int> v(c,0);
+            vector<int>v(c,0);
             vector<vector<int>> mat2(r,v);
             vector<int> temp;
             
-            for (int i = 0; i<m; i++){
+            for(int i = 0; i<m; i++){
                 for (int j = 0; j<n; j++)
                     temp.push_back(mat[i][j]);
             }
@@ -24,8 +24,9 @@ public:
                     k++;
                 }
             }
+            
+            
             return mat2;
         }
-        
     }
 };
