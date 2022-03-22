@@ -2,31 +2,30 @@ class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
         
-        int r = matrix.size(), c = matrix[0].size(), a = 0, b = r-1;
+        int r = matrix.size(), c = matrix[0].size(), a = 0, b = r-1, row = 0, mid = 0;
+        
         while(a<=b){
-            int row = a + (b-a)/2;
+            row = a + (b-a)/2;
             
-            if (target > matrix[row][c-1]){
+            if (target > matrix[row][c-1])
                 a = row+1;
-            }
-            
-            else if (target < matrix[row][0]){
+            else if (target< matrix[row][0])
                 b = row-1;
-            }
             
-            else break;
+            else
+                break;
         }
         
-        if (a > b) return false;
-        int row = a+ (b-a)/2, s = 0, e = c-1;
+        if (a>b) return false;
         
-        while(s<=e){
-            int mid = s+(e-s)/2;
-            if (target > matrix[row][mid])
-                s = mid+1;
-            else if(target < matrix[row][mid])
-                e = mid-1;
-            
+        row = a+(b-a)/2; a = 0; b = c-1;
+        
+        while(a<=b){
+            mid = a+(b-a)/2;
+            if (target < matrix[row][mid])
+                b = mid-1;
+            else if (target>matrix[row][mid])
+                a = mid+1;
             else return true;
         }
         
