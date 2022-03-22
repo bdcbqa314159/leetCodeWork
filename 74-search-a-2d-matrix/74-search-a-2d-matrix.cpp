@@ -5,15 +5,10 @@ public:
         int r = matrix.size(), c = matrix[0].size(), a = 0, b = r-1, row = 0, mid = 0;
         
         while(a<=b){
-            row = a + (b-a)/2;
-            
-            if (target > matrix[row][c-1])
-                a = row+1;
-            else if (target< matrix[row][0])
-                b = row-1;
-            
-            else
-                break;
+            row = a+(b-a)/2;
+            if (target>matrix[row][c-1]) a = row+1;
+            else if (target<matrix[row][0]) b = row-1;
+            else break;
         }
         
         if (a>b) return false;
@@ -22,13 +17,10 @@ public:
         
         while(a<=b){
             mid = a+(b-a)/2;
-            if (target < matrix[row][mid])
-                b = mid-1;
-            else if (target>matrix[row][mid])
-                a = mid+1;
+            if (target>matrix[row][mid]) a = mid+1;
+            else if (target<matrix[row][mid]) b = mid-1;
             else return true;
         }
-        
         return false;
         
         
