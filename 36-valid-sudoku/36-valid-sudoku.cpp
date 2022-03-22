@@ -4,7 +4,7 @@ public:
         
         int r = board.size(), c = board[0].size();
         
-        unordered_map<char, int> rows[9], columns[9], boxes[9];
+        unordered_map<char,int> rows[9], columns[9], boxes[9];
         
         for (int i = 0; i<r; i++){
             for (int j = 0; j<c; j++){
