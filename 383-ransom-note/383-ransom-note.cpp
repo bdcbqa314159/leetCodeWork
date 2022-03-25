@@ -1,43 +1,35 @@
 class Solution {
 public:
     
-    unordered_map<char, int> creator(string s){
-        unordered_map<char, int> output;
+    vector<int> creator(string s){
+        int n = s.size();
+        vector<int> count(26,0);
         
-        for (int i = 0; i<s.size(); i++){
-            if (output.count(s[i]) == 0){
-                output[s[i]] = 1;
-            }
-            else{
-                output[s[i]]++;
-            }
+        for (int i = 0; i<n; i++){
+            count[s[i]-'a']++;
         }
         
-        return output;
+        return count;
     }
     
     
     bool canConstruct(string ransomNote, string magazine) {
         
-        unordered_map<char, int> output1 = creator(ransomNote);
-        unordered_map<char, int> output2 = creator(magazine);
+        vector<int> out1 = creator(ransomNote);
+        vector<int> out2 = creator(magazine);
         
-        unordered_map<char, int>::iterator it;
+        int n = ransomNote.size();
         
-        for (it = output1.begin(); it != output1.end(); it++){
-            if (output2.find(it->first) == output2.end()){
-                
-                return false;
-            }
+        for (int i = 0; i<n; i++){
+            if (out2[ransomNote[i]-'a']==0) return false;
             else{
-                if (it->second > output2[it->first] ){
+                if (out1[ransomNote[i]-'a']>out2[ransomNote[i]-'a'])
                     return false;
-                }
             }
-            
         }
         
         return true;
+        
                
     }
 };
