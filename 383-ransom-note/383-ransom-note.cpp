@@ -18,13 +18,12 @@ public:
         vector<int> out2 = helper(magazine);
         
         for (int i = 0; i<n; i++){
-            int i1 = ransomNote[i]-'a';
+            int j = ransomNote[i]-'a';
             
-            if (out2[i1] == 0) return false;
+            if (out2[j] == 0) return false;
             else{
-                if (out2[i1]<out1[i1]) return false;
+                if(out2[j]<out1[j]) return false;
             }
-            
         }
         
         
