@@ -2,13 +2,9 @@ class Solution {
 public:
     
     bool isEqual(char c1, char c2){
-        if (c1 == '(' && c2 == ')')
-            return true;
-        if (c1 == '{' && c2 == '}')
-            return true;
-        if (c1 == '[' && c2 == ']')
-            return true;
-        
+        if (c1 == '(' && c2 == ')') return true;
+        if (c1 == '{' && c2 == '}') return true;
+        if (c1 == '[' && c2 == ']') return true;
         return false;
     }
     
@@ -17,21 +13,17 @@ public:
         
         vector<char> st{};
         
-        for (auto& c : s){
+        for (char &c : s){
             if (st.size()!=0){
                 char li = st[st.size()-1];
-                
-                if (isEqual(li, c)){
+                if (isEqual(li,c)){
                     st.pop_back();
                     continue;
                 }
             }
             st.push_back(c);
         }
-        
         return (st.size() == 0);
-        
         
     }
 };
-
