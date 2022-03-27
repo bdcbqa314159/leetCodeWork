@@ -15,12 +15,12 @@ public:
         
         while(cur){
             
-            while(cur->next != NULL && cur->val == cur->next->val){
+            while(cur->next && cur->val == cur->next->val){
                 cur->next = cur->next->next;
             }
-            
             cur = cur->next;
         }
+        
         
         return head;
     }
