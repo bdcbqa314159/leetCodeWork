@@ -7,9 +7,9 @@ public:
         
         for (int i = 0; i<n; i++)
             out[s[i]-'a']++;
+        
         return out;
     }
-    
     
     bool isAnagram(string s, string t) {
         int n = s.size(), m = t.size();
@@ -19,8 +19,7 @@ public:
         
         for (int i = 0; i<26; i++)
             if (u[i]!=v[i]) return false;
-        
         return true;
-    
+        
     }
 };
