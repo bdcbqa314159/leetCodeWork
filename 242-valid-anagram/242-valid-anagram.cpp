@@ -1,38 +1,29 @@
 class Solution {
 public:
     
-    unordered_map<char, int> creator(string &s){
-        unordered_map<char, int> result;
+    vector<int> helper(string& s){
         
-        for (int i = 0; i<s.size(); i++){
-            
-            if (result.count(s[i]) == 0){
-                result[s[i]] = 1;
-            }
-            else result[s[i]]++;
-        }
+        vector<int> ans(26,0);
         
-        return result;
+        for (int i = 0; i<s.size(); i++)
+            ans[s[i]-'a']++;
+        
+        return ans;
+        
     }
-
+    
+    
+    
     bool isAnagram(string s, string t) {
+        if (s.size()!=t.size()) return false;
         
-        if (s.size() != t.size()) return false;
-        unordered_map<char, int> umapS = creator(s);
-        unordered_map<char, int> umapT = creator(t);
+        vector<int> out1 = helper(t), out2 = helper(s);
         
-        unordered_map<char, int>::iterator it;
-        
-        for (it = umapS.begin(); it!=umapS.end(); it++){
-        
-            if (umapT.count(it->first) == 0) return false;
-            
-            else{
-                if (it->second != umapT[it->first]) return false;
-            }
-        }
+        for (int i = 0; i<out1.size();i++)
+            if (out1[i]!=out2[i]) return false;
         
         return true;
-       
+        
+        
     }
 };
