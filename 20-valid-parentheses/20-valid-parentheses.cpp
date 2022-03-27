@@ -12,8 +12,8 @@ public:
     bool isValid(string s) {
         vector<char> st{};
         
-        for (char &c : s){
-            if (st.size()!=0){
+        for (char& c: s){
+            if (st.size() != 0){
                 char li = st[st.size()-1];
                 if (isEqual(li,c)){
                     st.pop_back();
@@ -23,6 +23,6 @@ public:
             st.push_back(c);
         }
         
-        return (st.size()==0);
+        return st.size()==0;
     }
 };
