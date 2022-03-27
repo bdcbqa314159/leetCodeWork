@@ -19,7 +19,6 @@ public:
                 cur->next = cur->next->next;
             }
             
-            
             cur = cur->next;
         }
         
