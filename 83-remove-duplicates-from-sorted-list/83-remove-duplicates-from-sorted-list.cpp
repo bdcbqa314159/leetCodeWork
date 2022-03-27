@@ -19,8 +19,10 @@ public:
                 cur->next = cur->next->next;
             }
             
+            
             cur = cur->next;
         }
+        
         
         return head;
     }
