@@ -2,28 +2,22 @@ class Solution {
 public:
     
     vector<int> helper(string& s){
+        int n = s.size();
+        vector<int> out(26,0);
         
-        vector<int> ans(26,0);
-        
-        for (int i = 0; i<s.size(); i++)
-            ans[s[i]-'a']++;
-        
-        return ans;
-        
+        for (int i = 0; i<n; i++)
+            out[s[i]-'a']++;
+        return out;
     }
     
-    
-    
     bool isAnagram(string s, string t) {
-        if (s.size()!=t.size()) return false;
+        int n = s.size(), m = t.size();
+        if (n!=m) return false;
         
-        vector<int> out1 = helper(t), out2 = helper(s);
+        vector<int> out1 = helper(s), out2 = helper(t);
         
-        for (int i = 0; i<out1.size();i++)
+        for (int i = 0; i<out1.size(); i++)
             if (out1[i]!=out2[i]) return false;
-        
         return true;
-        
-        
     }
 };
