@@ -20,12 +20,10 @@ public:
             out = list1;
             out->next = mergeTwoLists(list1->next, list2);
         }
-        
         else{
             out = list2;
             out->next = mergeTwoLists(list2->next, list1);
         }
-        
         return out;
     }
 };
