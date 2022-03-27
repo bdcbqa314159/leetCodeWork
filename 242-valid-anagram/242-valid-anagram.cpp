@@ -3,27 +3,24 @@ public:
     
     vector<int> helper(string &s){
         int n = s.size();
-        vector<int> out(26,n);
+        vector<int> out(26,0);
         
-        for (int i = 0; i<n; i++){
+        for (int i = 0; i<n; i++)
             out[s[i]-'a']++;
-        }
-        
         return out;
     }
     
     
     bool isAnagram(string s, string t) {
-        
         int n = s.size(), m = t.size();
         if (n!=m) return false;
         
-        vector<int> out1 = helper(s), out2 = helper(t);
+        vector<int> u = helper(s), v = helper(t);
         
-        for (int i = 0; i < out1.size(); i++)
-            if (out1[i]!=out2[i]) return false;
+        for (int i = 0; i<26; i++)
+            if (u[i]!=v[i]) return false;
         
         return true;
-        
+    
     }
 };
