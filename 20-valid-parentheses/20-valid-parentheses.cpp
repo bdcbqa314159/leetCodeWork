@@ -3,11 +3,10 @@ public:
     
     bool isEqual(char c1, char c2){
         if (c1 == '(' && c2 == ')') return true;
-        if (c1 == '{' && c2 == '}') return true;
         if (c1 == '[' && c2 == ']') return true;
+        if (c1 == '{' && c2 == '}') return true;
         return false;
     }
-    
     
     bool isValid(string s) {
         vector<char> st{};
@@ -22,6 +21,7 @@ public:
             }
             st.push_back(c);
         }
+        
         
         return (st.size()==0);
     }
