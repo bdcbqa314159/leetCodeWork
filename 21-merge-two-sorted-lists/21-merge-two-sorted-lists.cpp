@@ -25,7 +25,6 @@ public:
             out = list2;
             out->next = mergeTwoLists(list2->next, list1);
         }
-        
         return out;
     }
 };
