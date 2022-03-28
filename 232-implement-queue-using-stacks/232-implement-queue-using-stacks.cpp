@@ -17,6 +17,7 @@ public:
             cout<<"empty"<<endl;
             return INT_MIN;
         }
+        
         return arr[firstI];
     }
     
@@ -28,42 +29,42 @@ public:
         
         int ans = arr[firstI];
         arr[firstI] = 0;
-        
         firstI = (firstI+1)%capacity;
         
-        
         size--;
-        if(size==0){
-            firstI = -1;
+        if (size == 0){
             nextI = 0;
+            firstI = -1;
         }
+        
         return ans;
     }
     
+   void push(int x){
+       if (size == capacity){
+           int *newArr = new int[2*capacity];
+           for (int i = 0; i<capacity; i++){
+               newArr[i] = arr[i];
+           }
+           nextI = capacity;
+           capacity *= 2;
+           firstI = 0;
+           delete []arr;
+           arr = newArr;
+       }
+       
+       arr[nextI] = x;
+       nextI = (nextI+1)%capacity;
+       
+       if (firstI == -1){
+           firstI = 0;
+       }
+       
+       size++;
+       
+   }
     
-    void push(int x){
-        if (size == capacity){
-            int *newArr = new int[2*capacity];
-            for (int i = 0; i<capacity; i++){
-                newArr[i] = arr[i];
-            }
-            
-            firstI = 0;
-            nextI = capacity;
-            capacity*=2;
-            delete []arr;
-            arr = newArr;
-        }
-        
-        arr[nextI] = x;
-        nextI = (nextI+1)%capacity;
-        
-        if (firstI == -1){
-            firstI = 0;
-        }
-        
-        size++;
-    }
+    
     
 };
 
