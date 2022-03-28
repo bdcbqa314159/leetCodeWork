@@ -2,6 +2,7 @@ class MyQueue {
 
 public:
     
+    
     int nextI, firstI, size, capacity, *arr;
     
     MyQueue(): nextI(0), firstI(-1), size(0), capacity(5){
@@ -17,7 +18,6 @@ public:
             cout<<"empty"<<endl;
             return INT_MIN;
         }
-        
         return arr[firstI];
     }
     
@@ -26,20 +26,19 @@ public:
             cout<<"empty"<<endl;
             return INT_MIN;
         }
+        
         int ans = arr[firstI];
         arr[firstI] = 0;
+        
         firstI = (firstI+1)%capacity;
         size--;
-        
         if (size==0){
             firstI = -1;
             nextI = 0;
         }
         
         return ans;
-        
     }
-    
     
     void push(int x){
         if (size == capacity){
@@ -49,7 +48,7 @@ public:
             }
             firstI = 0;
             nextI = capacity;
-            capacity *= 2;
+            capacity*=2;
             delete []arr;
             arr = newArr;
         }
@@ -60,9 +59,9 @@ public:
         if (firstI == -1){
             firstI = 0;
         }
-        
         size++;
     }
+    
     
     
     
