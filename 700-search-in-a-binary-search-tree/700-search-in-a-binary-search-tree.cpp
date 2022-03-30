@@ -15,9 +15,9 @@ public:
         if (!root) return NULL;
         
         if (root->val < val) return searchBST(root->right, val);
+        
         else if (root->val > val) return searchBST(root->left, val);
         
         else return root;
-        
     }
 };
