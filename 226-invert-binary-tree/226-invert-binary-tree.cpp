@@ -18,7 +18,8 @@ public:
         TreeNode* right = invertTree(root->right);
         
         root->left = right;
-        root->right = left;        
+        root->right = left;
+        
         return root;
     }
 };
