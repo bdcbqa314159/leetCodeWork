@@ -18,10 +18,9 @@ public:
         ans.push_back(root->val);
         helper(root->right, ans);
     }
-    
     vector<int> inOrderTraversal(TreeNode* root){
         vector<int> ans;
-        helper(root, ans);
+        helper(root,ans);
         return ans;
     }
     
@@ -30,7 +29,7 @@ public:
         int l = 0, r = tree.size()-1;
         while(l<r){
             int sum = tree[l]+tree[r];
-            if (sum == k) return true;
+            if (sum==k) return true;
             else if (sum>k) r--;
             else l++;
         }return false;
