@@ -12,34 +12,31 @@
 class Solution {
 public:
     
-    void inOrder(TreeNode* root, vector<int>& v){
+    void helper(TreeNode* root, vector<int>& v){
         if (!root) return;
-        
-        inOrder(root->left, v);
+        helper(root->left, v);
         v.push_back(root->val);
-        inOrder(root->right, v);
+        helper(root->right, v);
     }
     
-    vector<int> inorderTraversal(TreeNode* root) {
-         
+    vector<int> inOrderTraversal(TreeNode* root){
         vector<int> ans;
-        inOrder(root, ans);
+        helper(root, ans);
         return ans;
-        
     }
     
     
     bool findTarget(TreeNode* root, int k) {
         
-        vector<int> inOrderV{};
-        inOrderV = inorderTraversal(root);
-        int left = 0;
-        int right = inOrderV.size()-1;
+        vector<int> tree = inOrderTraversal(root);
+        int l = 0, r = tree.size()-1;
         
-        while(left<right){
-            if (inOrderV[left]+inOrderV[right] == k) return true;
-            else if (inOrderV[left]+inOrderV[right] > k) right--;
-            else left++;
+        while(l<r){
+            
+            int sum = tree[l]+tree[r];
+            if (sum== k) return true;
+            else if(sum>k) r--;
+            else l++;
         }
         
         return false;
