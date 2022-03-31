@@ -1,10 +1,11 @@
 class Solution {
 public:
-    string helper(string &s){
+    
+    string helper(string& s){
         int l = 0, r = s.size()-1;
         while(l<=r){
-            swap(s[l],s[r]);
-            l++;r--;
+            swap(s[l], s[r]);
+            l++; r--;
         }
         
         return s;
@@ -22,5 +23,3 @@ public:
         return ans.substr(0, ans.size()-1);
     }
 };
-
- 
