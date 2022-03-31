@@ -14,10 +14,12 @@ public:
     
     bool helper(TreeNode* root, long long minV = -10000000000, long long maxV = 10000000000){
         if (!root) return true;
-        bool left = helper(root->left, minV, root->val);
-        bool right = helper(root->right, root->val, maxV);
-        return left&&right&&root->val<maxV&&minV<root->val;
+        bool l = helper(root->left, minV, root->val);
+        bool r = helper(root->right, root->val, maxV);
+        return l && r && minV<root->val && root->val<maxV;
     }
+    
+    
     
     bool isValidBST(TreeNode* root) {
         return helper(root);
