@@ -16,9 +16,8 @@ public:
         if (!root) return true;
         bool l = helper(root->left, minV, root->val);
         bool r = helper(root->right, root->val, maxV);
-        return l && r && minV<root->val && root->val<maxV;
+        return l && r && root->val<maxV && minV<root->val;
     }
-    
     
     
     bool isValidBST(TreeNode* root) {
