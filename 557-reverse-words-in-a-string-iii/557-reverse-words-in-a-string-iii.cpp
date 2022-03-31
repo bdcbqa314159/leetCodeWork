@@ -16,6 +16,7 @@ public:
     string reverseWords(string s) {
         stringstream str(s);
         string word{}, ans{""};
+        
         while(str>>word){
             ans+=helper(word);
             ans+=" ";
