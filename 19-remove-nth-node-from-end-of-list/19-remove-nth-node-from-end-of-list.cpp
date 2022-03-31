@@ -16,7 +16,7 @@ public:
         
         ListNode *first = head, *second = head;
         
-        for (int i = 0; i<n; i++)
+        for(int i = 0; i<n; i++)
             first = first->next;
         
         if (!first) return head->next;
@@ -27,6 +27,7 @@ public:
         }
         
         second->next = second->next->next;
+        
         return ans->next;
     }
 };
