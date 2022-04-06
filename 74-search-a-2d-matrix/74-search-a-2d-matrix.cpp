@@ -9,14 +9,13 @@ public:
             else break;
         }
         if (a>b) return false;
-        row = a + (b-a)/2; a = 0; b = c-1;
+        row = a+(b-a)/2; a = 0; b = c-1;
         while (a<=b){
             mid = a + (b-a)/2;
             if (target<matrix[row][mid]) b = mid-1;
             else if (target>matrix[row][mid]) a = mid+1;
             else return true;
         }
-        
         return false;
     }
 };
