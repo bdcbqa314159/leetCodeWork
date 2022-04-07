@@ -6,19 +6,19 @@ public:
         int n = s.size();
         for (int i = 0; i<n; i++)
             out[s[i]-'a']++;
+        
+        
         return out;
     }
     
-    
     bool canConstruct(string ransomNote, string magazine) {
-        int n = ransomNote.size();
         vector<int> out1 = helper(ransomNote), out2 = helper(magazine);
+        int n = ransomNote.size();
         
         for (int i = 0; i<n; i++){
             int j = ransomNote[i]-'a';
-            
-            if (out2[j] == 0) return false;
-            else if (out2[j]<out1[j]) return false;
+            if (out2[j]==0) return false;
+            else if(out2[j]<out1[j]) return false;
         }
         
         return true;
