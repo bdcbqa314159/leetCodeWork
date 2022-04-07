@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    vector<int> helper(string & s){
+    vector<int> helper(string &s){
         vector<int> u(26,0); int n = s.size();
         for (int i = 0; i<n; i++) u[s[i]-'a']++;
         return u;
