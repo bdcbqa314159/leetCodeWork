@@ -2,7 +2,7 @@ class Solution {
 public:
     
     vector<int> helper(string& s){
-        int n = s.size(); vector<int> u(26,0);
+        vector<int> u(26,0); int n = s.size();
         for (int i = 0; i<n; i++) u[s[i]-'a']++;
         return u;
     }
@@ -13,9 +13,10 @@ public:
         int n = ransomNote.size();
         for (int i = 0; i<n; i++){
             int j = ransomNote[i]-'a';
-            if (v[j]==0) return false;
+            if (v[j] == 0) return false;
             else if (v[j]<u[j]) return false;
         }
+        
         return true;
     }
 };
