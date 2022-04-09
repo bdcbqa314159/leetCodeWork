@@ -11,7 +11,6 @@
 class Solution {
 public:
     ListNode* removeElements(ListNode* head, int val) {
-        
         if (!head) return head;
         ListNode *h = removeElements(head->next, val);
         
