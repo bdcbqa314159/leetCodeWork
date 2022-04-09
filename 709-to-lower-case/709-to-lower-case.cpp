@@ -2,11 +2,11 @@ class Solution {
 public:
     string toLowerCase(string s) {
         char ch;
-        string u = "";
+        // string u = "";
         for (int i = 0; i<s.size(); i++){
             ch = tolower(s[i]);
-            u+=ch;
+            s[i] = ch;
         }
-        return u;
+        return s;
     }
 };
