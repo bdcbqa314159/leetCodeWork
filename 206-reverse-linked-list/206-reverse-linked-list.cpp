@@ -17,7 +17,6 @@ public:
             head->next = prev;
             prev = head;
             head = next;
-        }
-        return prev;
+        }return prev;
     }
 };
