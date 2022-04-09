@@ -18,7 +18,6 @@ public:
             prev = head;
             head = next;
         }
-        
         return prev;
     }
 };
