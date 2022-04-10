@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    bool helper(char c1, char c2){
+    bool helper(char c1,char c2){
         if (c1 == '(' && c2 == ')') return true;
         if (c1 == '{' && c2 == '}') return true;
         if (c1 == '[' && c2 == ']') return true;
@@ -14,11 +14,13 @@ public:
             if (st.size()!=0){
                 char li = st[st.size()-1];
                 if (helper(li, s[i])){
-                    st.pop_back(); continue;
+                    st.pop_back();
+                    continue;
                 }
             }
             st.push_back(s[i]);
         }
+        
         return st.size()==0;
     }
 };
