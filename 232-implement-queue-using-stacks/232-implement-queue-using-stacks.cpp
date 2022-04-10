@@ -3,18 +3,17 @@ public:
     
     int firstI, nextI, size, capacity, *arr;
     
-    MyQueue(): firstI(-1), nextI(0), size(0), capacity(5) {
-        
-        arr = new int[2*capacity];
-        
+    MyQueue():firstI(-1), nextI(0), size(0), capacity(5) {
+        arr = new int[capacity];
     }
     
     void push(int x) {
         if (size == capacity){
             int *newArr = new int[2*capacity];
             for (int i = 0; i<capacity; i++){
-                newArr[i] = arr[i];
+                newArr[i]=arr[i];
             }
+            
             nextI = capacity;
             capacity*=2;
             delete []arr;
@@ -25,12 +24,11 @@ public:
         nextI = (nextI+1)%capacity;
         if (firstI == -1) firstI = 0;
         size++;
+        
     }
     
     int pop() {
-        
         if (empty()) return INT_MIN;
-        
         int ans = arr[firstI];
         arr[firstI] = 0;
         firstI = (firstI+1)%capacity;
@@ -39,6 +37,7 @@ public:
             firstI = -1;
             nextI = 0;
         }
+        
         return ans;
     }
     
@@ -48,7 +47,7 @@ public:
     }
     
     bool empty() {
-        return size==0;
+        return size == 0;
     }
 };
 
