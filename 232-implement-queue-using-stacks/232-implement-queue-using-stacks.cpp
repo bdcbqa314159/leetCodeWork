@@ -1,10 +1,11 @@
 class MyQueue {
 public:
-    
     int firstI, nextI, size, capacity, *arr;
     
-    MyQueue():firstI(-1), nextI(0), size(0), capacity(3) {
+    MyQueue():firstI(-1), nextI(0), size(0), capacity(7) {
+        
         arr = new int[capacity];
+        
     }
     
     void push(int x) {
@@ -17,6 +18,7 @@ public:
             delete []arr;
             arr = newArr;
         }
+        
         arr[nextI] = x;
         nextI = (nextI+1)%capacity;
         if (firstI == -1) firstI = 0;
@@ -26,8 +28,8 @@ public:
     int pop() {
         if (empty()) return INT_MIN;
         int ans = arr[firstI];
-        
         arr[firstI] = 0;
+        
         firstI = (firstI+1)%capacity;
         size--;
         if (size==0){
