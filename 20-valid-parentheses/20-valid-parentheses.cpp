@@ -12,7 +12,6 @@ public:
         vector<char> st{};
         
         for (int i = 0; i<s.size(); i++){
-            
             if (st.size()!=0){
                 char li = st[st.size()-1];
                 if (helper(li, s[i])){
@@ -20,7 +19,6 @@ public:
                     continue;
                 }
             }
-            
             st.push_back(s[i]);
         }
         
