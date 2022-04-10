@@ -1,9 +1,8 @@
 class MyQueue {
 public:
-    
-    int nextI, firstI, size, capacity, *arr;
-    
-    MyQueue():firstI(-1), nextI(0), size(0), capacity(3) {
+    int firstI, nextI, size, capacity, *arr;
+
+    MyQueue(): firstI(-1), nextI(0), size(0), capacity(3) {
         
         arr = new int[capacity];
         
@@ -13,13 +12,12 @@ public:
         if (size == capacity){
             int *newArr = new int[2*capacity];
             for (int i = 0; i<capacity; i++)
-                newArr[i]=arr[i];
+                newArr[i] = arr[i];
             nextI = capacity;
             capacity*=2;
             delete []arr;
             arr = newArr;
         }
-        
         arr[nextI] = x;
         nextI = (nextI+1)%capacity;
         if (firstI == -1) firstI = 0;
@@ -32,11 +30,10 @@ public:
         arr[firstI] = 0;
         firstI = (firstI+1)%capacity;
         size--;
-        if (size==0){
+        if (size == 0){
             firstI = -1;
             nextI = 0;
         }
-        
         return ans;
     }
     
