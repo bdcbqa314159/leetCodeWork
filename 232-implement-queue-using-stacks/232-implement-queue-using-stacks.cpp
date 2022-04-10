@@ -4,12 +4,12 @@ public:
     
     int nextI, firstI, size, capacity, *arr;
     
-    MyQueue(): nextI(0), firstI(-1), size(0), capacity(5){
+    MyQueue(): firstI(-1), nextI(0), size(0), capacity(5){
         arr = new int[2*capacity];
-    }
+    } 
     
     bool empty(){
-        return (size==0);
+        return size==0;
     }
     
     int peek(){
@@ -17,11 +17,11 @@ public:
             cout<<"empty"<<endl;
             return INT_MIN;
         }
-        
         return arr[firstI];
     }
     
     int pop(){
+        
         if (empty()){
             cout<<"empty"<<endl;
             return INT_MIN;
@@ -35,25 +35,30 @@ public:
             firstI = -1;
             nextI = 0;
         }
+        
         return ans;
+        
+        
     }
     
     void push(int x){
         if (size == capacity){
             int *newArr = new int[2*capacity];
-            for(int i = 0; i<capacity; i++)
+            for (int i = 0; i<capacity; i++){
                 newArr[i] = arr[i];
+            }
             nextI = capacity;
             capacity*=2;
             delete []arr;
             arr = newArr;
-            
         }
+        
         arr[nextI] = x;
         nextI = (nextI+1)%capacity;
         if (firstI == -1) firstI = 0;
         size++;
     }
+    
     
 
 };
