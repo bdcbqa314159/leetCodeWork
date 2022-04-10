@@ -8,11 +8,11 @@ public:
         return false;
     }
     
-    
+
     bool isValid(string s) {
-        vector<char> st{};
         
-        for (char& c: s){
+        vector<char> st{};
+        for (char &c : s){
             if (st.size() != 0){
                 char li = st[st.size()-1];
                 if (isEqual(li,c)){
