@@ -4,16 +4,17 @@ public:
     int firstI, nextI, size, capacity, *arr;
     
     MyQueue():firstI(-1), nextI(0), size(0), capacity(5) {
+        
         arr = new int[capacity];
+        
     }
     
     void push(int x) {
         if (size == capacity){
             int *newArr = new int[2*capacity];
             for (int i = 0; i<capacity; i++){
-                newArr[i]=arr[i];
+                newArr[i] = arr[i];
             }
-            
             nextI = capacity;
             capacity*=2;
             delete []arr;
@@ -47,7 +48,7 @@ public:
     }
     
     bool empty() {
-        return size == 0;
+        return size==0;
     }
 };
 
