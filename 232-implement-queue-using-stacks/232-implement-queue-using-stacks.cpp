@@ -1,11 +1,10 @@
 class MyQueue {
 public:
+    
     int firstI, nextI, size, capacity, *arr;
-
+    
     MyQueue(): firstI(-1), nextI(0), size(0), capacity(3) {
-        
         arr = new int[capacity];
-        
     }
     
     void push(int x) {
@@ -27,13 +26,15 @@ public:
     int pop() {
         if (empty()) return INT_MIN;
         int ans = arr[firstI];
+        
         arr[firstI] = 0;
         firstI = (firstI+1)%capacity;
         size--;
-        if (size == 0){
+        if (size==0){
             firstI = -1;
             nextI = 0;
         }
+        
         return ans;
     }
     
