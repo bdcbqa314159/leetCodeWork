@@ -20,7 +20,7 @@ public:
     }
     
     vector<int> preorderTraversal(TreeNode* root) {
-        vector<int> out{};
+        vector<int> out;
         helper(root, out);
         return out;
     }
