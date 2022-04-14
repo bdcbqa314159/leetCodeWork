@@ -12,14 +12,13 @@
 class Solution {
 public:
     TreeNode* invertTree(TreeNode* root) {
-        if(!root) return NULL;
-        TreeNode *right, *left;
-        right = invertTree(root->right);
-        left = invertTree(root->left);
+        if (!root) return NULL;
         
-        root->right = left;
-        root->left = right;
-        
+        TreeNode *r, *l;
+        r = invertTree(root->right);
+        l = invertTree(root->left);
+        root->right = l;
+        root->left = r;
         return root;
     }
 };
