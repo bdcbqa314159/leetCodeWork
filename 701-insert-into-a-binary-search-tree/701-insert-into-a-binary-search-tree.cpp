@@ -17,9 +17,9 @@ public:
             return node;
         }
         
-        if (val<root->val)
+        if (val < root->val)
             root->left = insertIntoBST(root->left, val);
-        else if (val>root->val)
+        else
             root->right = insertIntoBST(root->right, val);
         return root;
     }
