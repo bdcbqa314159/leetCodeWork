@@ -19,12 +19,11 @@ public:
         helper(root->right, ans);
     }
     
-    vector<int> inOrderTraversal(TreeNode *root){
+    vector<int> inOrderTraversal(TreeNode* root){
         vector<int> ans;
         helper(root, ans);
         return ans;
     }
-    
     
     bool findTarget(TreeNode* root, int k) {
         if (!root) return false;
@@ -35,7 +34,6 @@ public:
             if (sum == k) return true;
             else if (sum<k) l++;
             else r--;
-        }
-        return false;
+        }return false;
     }
 };
