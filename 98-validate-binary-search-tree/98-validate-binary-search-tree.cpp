@@ -12,11 +12,11 @@
 class Solution {
 public:
     
-    bool helper(TreeNode* root, long long minV = -10000000000, long long maxV =10000000000){
+    bool helper(TreeNode *root, long long m = -10000000000, long long M = 10000000000){
         if (!root) return true;
-        bool l = helper(root->left, minV, root->val);
-        bool r = helper(root->right, root->val, maxV);
-        return l&&r&&minV<root->val&&root->val<maxV;
+        bool l = helper(root->left, m, root->val);
+        bool r = helper(root->right, root->val, M);
+        return l && r && m<root->val && root->val<M;
     }
     
     
