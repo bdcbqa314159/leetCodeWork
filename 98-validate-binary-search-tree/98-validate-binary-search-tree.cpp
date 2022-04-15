@@ -12,7 +12,7 @@
 class Solution {
 public:
     
-    bool helper(TreeNode *root, long long m = -10000000000, long long M = 10000000000){
+    bool helper(TreeNode *root, long long m = -10000000000, long long M= 10000000000){
         if (!root) return true;
         bool l,r;
         l = helper(root->left, m, root->val);
