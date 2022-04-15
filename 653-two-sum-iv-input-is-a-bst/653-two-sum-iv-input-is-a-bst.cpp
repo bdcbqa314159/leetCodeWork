@@ -19,7 +19,7 @@ public:
         helper(root->right, ans);
     }
     
-    vector<int> inOrderTraversal(TreeNode *root){
+    vector<int> inOrderTraversal(TreeNode* root){
         vector<int> ans;
         helper(root, ans);
         return ans;
@@ -27,10 +27,11 @@ public:
     
     
     bool findTarget(TreeNode* root, int k) {
-        vector<int> u = inOrderTraversal(root);
-        int l = 0, r = u.size()-1;
+        if (!root) return false;
+        vector<int> ans = inOrderTraversal(root);
+        int l = 0, r = ans.size()-1;
         while (l<r){
-            int sum = u[l]+u[r];
+            int sum = ans[l]+ans[r];
             if (sum == k) return true;
             else if (sum<k) l++;
             else r--;
