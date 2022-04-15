@@ -11,7 +11,6 @@
  */
 class Solution {
 public:
-    
     void helper(TreeNode* root, vector<int>& ans){
         if (!root) return;
         helper(root->left, ans);
@@ -34,6 +33,8 @@ public:
             if (sum == k) return true;
             else if (sum<k) l++;
             else r--;
-        }return false;
+        }
+        
+        return false;
     }
 };
