@@ -12,7 +12,7 @@
 class Solution {
 public:
     
-    void helper(TreeNode *root, vector<int>& ans){
+    void helper(TreeNode* root, vector<int>& ans){
         if (!root) return;
         helper(root->left, ans);
         ans.push_back(root->val);
@@ -25,6 +25,7 @@ public:
         return ans;
     }
     
+    
     bool findTarget(TreeNode* root, int k) {
         if (!root) return false;
         vector<int> ans = inOrderTraversal(root);
@@ -32,8 +33,9 @@ public:
         while (l<r){
             int sum = ans[l]+ans[r];
             if (sum == k) return true;
-            else if (sum>k) r--;
-            else l++;
-        }return false;
+            else if (sum<k) l++;
+            else r--;
+        }
+        return false;
     }
 };
