@@ -1,18 +1,12 @@
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
-        
-        int maxTemp = nums[0], maxFinal = nums[0];
-        
+        int localMax = nums[0], globalMax = nums[0];
         for (int i = 1; i<nums.size(); i++){
-            maxTemp = max(maxTemp+nums[i], nums[i]);
-            maxFinal = max(maxFinal, maxTemp);
+            localMax = max(localMax+nums[i], nums[i]);
+            globalMax = max(localMax, globalMax);
         }
         
-        
-        return maxFinal;
-        
-        
-        
+        return globalMax;
     }
 };
