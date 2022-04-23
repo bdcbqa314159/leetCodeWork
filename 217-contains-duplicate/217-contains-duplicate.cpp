@@ -1,20 +1,20 @@
 class Solution {
 public:
-    
     unordered_map<int,int> helper(vector<int>& nums){
-        unordered_map<int,int> out;
+        unordered_map<int,int> u;
         for (int i = 0; i<nums.size(); i++){
-            auto it = out.find(nums[i]);
-            if (it == out.end()) out[nums[i]] = 1;
-            else out[nums[i]]++;
+            auto it = u.find(nums[i]);
+            if (it == u.end()) u[nums[i]] = 1;
+            else u[nums[i]]++;
         }
-        return out;
+        return u;
     }
     
     bool containsDuplicate(vector<int>& nums) {
-        unordered_map<int,int> umap = helper(nums);
-        for (int i = 0; i<nums.size(); i++){
-            if (umap[nums[i]]>1) return true;
+        auto u = helper(nums);
+        auto it = nums.begin();
+        for (it; it!=nums.end(); it++){
+            if (u[*it]>1) return true;
         }
         return false;
     }
