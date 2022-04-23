@@ -12,12 +12,10 @@ public:
     }
     
     bool containsDuplicate(vector<int>& nums) {
-        auto it = nums.begin();
         auto out = helper(nums);
-        
-        for (it; it!=nums.end(); it++){
+        auto it = nums.begin();
+        for (it; it != nums.end(); it++){
             if (out[*it] > 1) return true;
-        }
-        return false;
+        }return false;
     }
 };
