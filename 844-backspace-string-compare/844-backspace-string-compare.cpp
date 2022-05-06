@@ -1,29 +1,30 @@
 class Solution {
 public:
     
-    void x(string& s, stack<int>& t){
-        for (auto &u: s){
-            if (u=='#' && !t.empty())
-                t.pop();
-            else if(u != '#')
-                t.push(u);
+    void f(string &s, stack<int>&b){
+        for (auto &e: s){
+            if (e == '#' && !b.empty())
+                b.pop();
+            else if (e!='#')
+                b.push(e);
         }
         return;
     }
     
-    void y(stack<int> u, string &v){
-        while (!u.empty()){
-            v.push_back(u.top());
-            u.pop();
+    void g(string &s, stack<int>&b){
+        while (!b.empty()){
+            s.push_back(b.top());
+            b.pop();
         }
         return;
     }
     
     bool backspaceCompare(string s, string t) {
-        stack<int> a,b;
-        x(s,a); x(t,b);
-        string u, v;
-        y(a,u); y(b,v);
-        return u==v;
+        
+        stack<int> u,v;
+        f(s,u); f(t,v);
+        string a, b;
+        g(a,u); g(b,v);
+        return a==b;
     }
 };
