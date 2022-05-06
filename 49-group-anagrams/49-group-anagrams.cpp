@@ -10,8 +10,9 @@ public:
             umap[key].push_back(s);
         }
         
-        for (auto &p: umap)
+        for (auto &p: umap){
             results.push_back(p.second);
+        }
         
         return results;
     }
