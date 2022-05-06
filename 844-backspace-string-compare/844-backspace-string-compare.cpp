@@ -1,35 +1,33 @@
 class Solution {
 public:
     
-    void helper(string &s, stack<char> &st){
-        for (int i = 0; i<s.size(); i++){
-            if (s[i]=='#' && !st.empty())
-                st.pop();
-            else if (s[i] != '#')
-                st.push(s[i]);
+    void helper(string &s, stack<int>& t){
+        for (auto &u : s){
+            if (u == '#' && !t.empty())
+                t.pop();
+            else if (u!='#')
+                t.push(u);
         }
-        
+        return;
+    }
+    
+    void helper2(string &s, stack<int>& t){
+        while (!t.empty()){
+            s.push_back(t.top());
+            t.pop();
+        }
         return;
     }
     
     
     bool backspaceCompare(string s, string t) {
-        stack<char> s1,s2;
-        string str1, str2;
+        string a,b;
+        stack<int> c,d;
+        helper(s,c);
+        helper(t,d);
+        helper2(a,c);
+        helper2(b,d);
         
-        helper(s,s1);
-        helper(t,s2);
-        
-        while (!s1.empty()){
-            str1.push_back(s1.top());
-            s1.pop();
-        }
-        
-        while (!s2.empty()){
-            str2.push_back(s2.top());
-            s2.pop();
-        }
-        
-        return str1==str2;
+        return a==b;
     }
 };
