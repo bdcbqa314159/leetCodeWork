@@ -17,11 +17,11 @@ public:
             h = 0;
             return 0;
         }
-        int h1 = 0, h2 = 0;
-        int d1 = helper(node->left, h1), d2 = helper(node->right, h2);
-        h = max(h1, h2)+1;
         
-        return max(max(d1, d2), h1+h2);
+        int h1 = 0, h2 = 0;
+        int d1 = helper(node->left, h1), d2 =helper(node->right, h2);
+        h = max(h1,h2)+1;
+        return max(max(d1,d2),h1+h2);
     }
     
     
