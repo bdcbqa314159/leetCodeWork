@@ -14,6 +14,6 @@ public:
                 pq.push(x-y);
         }
         
-        return pq.empty()?0: pq.top();
+        return pq.empty()? 0: pq.top();
     }
 };
