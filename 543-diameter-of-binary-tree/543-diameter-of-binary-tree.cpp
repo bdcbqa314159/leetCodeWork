@@ -12,7 +12,7 @@
 class Solution {
 public:
     
-    int helper(TreeNode* node, int& h){
+    int helper(TreeNode* node, int &h){
         if (!node){
             h = 0;
             return 0;
@@ -22,7 +22,6 @@ public:
         h = max(h1,h2)+1;
         return max(max(d1,d2), h1+h2);
     }
-    
     
     int diameterOfBinaryTree(TreeNode* root) {
         int h = 0;
