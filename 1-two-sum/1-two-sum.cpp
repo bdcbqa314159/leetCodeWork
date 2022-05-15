@@ -2,12 +2,13 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         unordered_map<int,int> umap;
-        for (int i = 0; i<nums.size(); i++){
-            int goal = target-nums[i];
+        int i, goal;
+        for (i = 0; i<nums.size(); i++){
+            goal = target-nums[i];
             if (umap.find(goal) != umap.end())
-                return {i, umap[goal]};
+                break;
             else
                 umap[nums[i]] = i;
-        }return {};
+        }return {i, umap[goal]};
     }
 };
