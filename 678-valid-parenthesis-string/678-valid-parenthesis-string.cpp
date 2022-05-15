@@ -1,31 +1,30 @@
 class Solution {
 public:
     bool checkValidString(string s) {
-        if (s.length()<1) return true;
+        int n = s.length();
+        if (n<1) return true;
         
         int balance = 0;
         
-        for (int i = 0; i<s.length(); i++){
+        for (int i = 0; i<n; i++){
             if (s[i] == ')')
                 balance--;
             else
                 balance++;
-            if (balance < 0)
-                return false;
+            if (balance<0) return false;
         }
+        if (balance == 0) return true;
         
-        if (balance == 0)
-            return true;
         balance = 0;
-        for (int i = s.length()-1; i>=0; i--){
+        
+        for (int i = n-1; i>=0; i--){
             if (s[i] == '(')
                 balance--;
             else
                 balance++;
-            if (balance < 0)
-                return false;
+            if (balance<0) return false;
         }
-        return true;
         
+        return true;
     }
 };
