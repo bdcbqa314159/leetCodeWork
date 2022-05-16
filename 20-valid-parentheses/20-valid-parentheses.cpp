@@ -1,22 +1,23 @@
 class Solution {
 public:
     
-    bool helper(char a, char b){
-        return (a=='(' && b==')' || a=='{' && b=='}' || a=='[' && b==']');
+    bool isValid(char a, char b){
+        return (a=='{' && b=='}' || a=='[' && b==']' || a=='(' && b==')');
     }
     
+    
     bool isValid(string s) {
-        stack<char> t;
+        stack<char> u;
         for (int i = 0; i<s.size(); i++){
-            if (!t.empty()){
-                char li = t.top();
-                if (helper(li, s[i])){
-                    t.pop();
+            if (!u.empty()){
+                char li = u.top();
+                if (isValid(li, s[i])){
+                    u.pop();
                     continue;
                 }
             }
-            t.push(s[i]);
+            u.push(s[i]);
         }
-        return t.size() == 0;
+        return u.size()==0;
     }
 };
