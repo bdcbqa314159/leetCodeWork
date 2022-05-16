@@ -1,16 +1,15 @@
 class Solution {
 public:
     
-    bool helper(char c1, char c2){
-        if (c1 == '(' && c2 == ')') return true;
-        if (c1 == '{' && c2 == '}') return true;
-        if (c1 == '[' && c2 == ']') return true;
+    bool helper(char a, char b){
+        if (a == '(' && b == ')') return true;
+        if (a == '{' && b == '}') return true;
+        if (a == '[' && b == ']') return true;
         return false;
     }
     
     bool isValid(string s) {
         vector<char> st{};
-        
         for (int i = 0; i<s.size(); i++){
             if (st.size()!=0){
                 char li = st[st.size()-1];
@@ -21,7 +20,6 @@ public:
             }
             st.push_back(s[i]);
         }
-        
-        return st.size()==0;
+        return st.size() == 0;
     }
 };
