@@ -2,19 +2,20 @@ class Solution {
 public:
     
     bool isValid(char a, char b){
-        return (a == '(' && b == ')' || a=='{' && b == '}' || a=='[' && b==']');
+        return (a=='(' && b==')' || a=='[' && b==']' || a=='{' && b=='}');
     }
     
     bool isValid(string s) {
         stack<char> u;
-        for (int i = 0; i<s.size(); i++){
+        for (auto &x: s){
             if (!u.empty()){
                 char li = u.top();
-                if (isValid(li,s[i])){
-                    u.pop(); continue;
+                if (isValid(li, x)){
+                    u.pop();
+                    continue;
                 }
             }
-            u.push(s[i]);
+            u.push(x);
         }
         return u.empty();
     }
