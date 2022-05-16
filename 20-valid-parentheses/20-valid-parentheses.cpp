@@ -7,17 +7,17 @@ public:
     
     
     bool isValid(string s) {
-        stack<char> y;
-        for (char &x:s){
-            if (!y.empty()){
-                char li = y.top();
-                if (isValid(li,x)){
-                    y.pop();
+        stack<char> u;
+        for(auto &x: s){
+            if (!u.empty()){
+                char li = u.top();
+                if (isValid(li, x)){
+                    u.pop();
                     continue;
                 }
             }
-            y.push(x);
+            u.push(x);
         }
-        return y.empty();
+        return u.empty();
     }
 };
