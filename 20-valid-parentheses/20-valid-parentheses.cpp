@@ -2,21 +2,21 @@ class Solution {
 public:
     
     bool isValid(char a, char b){
-        return (a=='(' && b==')' || a=='{' && b=='}' || a=='[' && b==']');
+        return (a == '(' && b==')' || a=='{' && b=='}' || a=='[' && b==']');
     }
     
     
     bool isValid(string s) {
         stack<char> u;
-        for(auto &x: s){
+        for (int i = 0; i<s.size(); i++){
             if (!u.empty()){
                 char li = u.top();
-                if (isValid(li, x)){
+                if (isValid(li, s[i])){
                     u.pop();
                     continue;
                 }
             }
-            u.push(x);
+            u.push(s[i]);
         }
         return u.empty();
     }
