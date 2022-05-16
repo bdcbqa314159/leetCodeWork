@@ -7,7 +7,7 @@ public:
         for (int i = 0; i<r; i++){
             for (int j = 0; j<c; j++){
                 char c = board[i][j];
-                if (c!='.' && (x[i][c]>0||y[j][c]>0||z[i/3*3+j/3][c]>0))
+                if (c != '.' && (x[i][c]>0 ||y[j][c]>0 || z[i/3*3+j/3][c]>0))
                     return false;
                 x[i][c]++;y[j][c]++;z[i/3*3+j/3][c]++;
             }
