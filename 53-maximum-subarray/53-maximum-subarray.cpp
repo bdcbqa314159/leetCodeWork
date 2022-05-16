@@ -4,7 +4,7 @@ public:
         int local = nums[0], max_ = nums[0];
         for (int i = 1; i<nums.size(); i++){
             local = max(local+nums[i], nums[i]);
-            max_ = max(max_, local);
+            max_ = max(local,max_);
         }
         return max_;
     }
