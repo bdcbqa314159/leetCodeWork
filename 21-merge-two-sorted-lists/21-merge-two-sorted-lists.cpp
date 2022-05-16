@@ -15,6 +15,7 @@ public:
         if (!list2) return list1;
         
         ListNode* out;
+        
         if (list1->val<list2->val){
             out = list1;
             out->next = mergeTwoLists(list1->next, list2);
@@ -24,5 +25,6 @@ public:
             out->next = mergeTwoLists(list2->next, list1);
         }
         return out;
+        
     }
 };
