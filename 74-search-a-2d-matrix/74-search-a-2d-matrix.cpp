@@ -10,7 +10,7 @@ public:
         }
         
         if (a>b) return false;
-        row = a+(b-a)/2;
+        // row = a+(b-a)/2;
         a = 0; b = c-1;
         
         while (a<=b){
