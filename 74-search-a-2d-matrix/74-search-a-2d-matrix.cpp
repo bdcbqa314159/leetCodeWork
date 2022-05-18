@@ -5,16 +5,17 @@ public:
         while (a<=b){
             row = a + (b-a)/2;
             if (target<matrix[row][0]) b = row-1;
-            else if(target>matrix[row][c-1]) a = row+1;
+            else if (target>matrix[row][c-1]) a = row+1;
             else break;
         }
-        if (a>b) return false;
+        
+        if (a > b) return false;
         a = 0; b = c-1;
-        while(a<=b){
+        while (a<=b){
             mid = a + (b-a)/2;
             int x = matrix[row][mid];
-            if (target == x) return true;
-            else if(target<x) b = mid-1;
+            if (target==x) return true;
+            else if (target<x) b = mid-1;
             else a = mid+1;
         }
         return false;
