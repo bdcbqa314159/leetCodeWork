@@ -17,7 +17,7 @@ public:
         bool l, r;
         l = helper(root->left, m, root->val);
         r = helper(root->right, root->val, M);
-        return l && r && m<root->val && root->val<M;
+        return r && l && m<root->val && root->val<M;
     }
     
     
