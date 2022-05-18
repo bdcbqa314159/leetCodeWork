@@ -19,11 +19,10 @@ public:
         helper(node->right, u);
     }
     
-    
     vector<int> inorderTraversal(TreeNode* root) {
         if (!root) return {};
-        vector<int> u;
-        helper(root, u);
-        return u;
+        vector<int> o;
+        helper(root, o);
+        return o;
     }
 };
