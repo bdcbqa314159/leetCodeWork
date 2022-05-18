@@ -20,6 +20,7 @@ public:
         return l && r && m<root->val && root->val<M;
     }
     
+    
     bool isValidBST(TreeNode* root) {
         return helper(root);
     }
