@@ -12,7 +12,7 @@
 class Solution {
 public:
     
-    void helper(TreeNode* node, vector<int>&u){
+    void helper(TreeNode* node, vector<int>& u){
         if (!node) return;
         helper(node->left, u);
         u.push_back(node->val);
@@ -21,8 +21,8 @@ public:
     
     vector<int> inorderTraversal(TreeNode* root) {
         if (!root) return {};
-        vector<int> u;
-        helper(root, u);
-        return u;
+        vector<int>a;
+        helper(root, a);
+        return a;
     }
 };
