@@ -14,7 +14,7 @@ public:
     
     bool helper(TreeNode* root, long long m = -1e10, long long M = 1e10){
         if (!root) return true;
-        bool l,r;
+        bool l, r;
         l = helper(root->left, m, root->val);
         r = helper(root->right, root->val, M);
         return l && r && m<root->val && root->val<M;
