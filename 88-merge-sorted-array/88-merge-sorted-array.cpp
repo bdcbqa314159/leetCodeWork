@@ -6,15 +6,15 @@ public:
             if (nums1[m-1]>nums2[n-1]){
                 nums1[final] = nums1[m-1];
                 final--;m--;
-            }
-            else{
+            }else{
                 nums1[final] = nums2[n-1];
-                final--;n--;
+                final--; n--;
             }
         }
         while (n>0){
             nums1[final] = nums2[n-1];
-            final--;n--;
+            n--;final--;
         }
     }
+    
 };
