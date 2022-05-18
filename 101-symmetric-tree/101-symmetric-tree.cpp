@@ -15,10 +15,9 @@ public:
     bool helper(TreeNode* l, TreeNode* r){
         if (!r && !l) return true;
         if (!r && l) return false;
-        if (r && !l) return false;
-        if (r->val != l->val) return false;
-        
-        return helper(l->right, r->left)&&helper(l->left, r->right);
+        if (!l && r) return false;
+        if (l->val != r->val) return false;
+        return helper(l->left, r->right) && helper(l->right, r->left);
     }
     
     
