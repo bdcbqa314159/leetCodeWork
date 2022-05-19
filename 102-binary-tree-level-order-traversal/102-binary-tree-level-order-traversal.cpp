@@ -18,22 +18,18 @@ public:
         
         q.push(root);
         
-        while (!q.empty()){
+        while(!q.empty()){
             int size = q.size();
-            for (int i = 1; i<=size; i++){
+            for (int i = 0; i<size; i++){
                 TreeNode* x = q.front(); q.pop();
                 level.push_back(x->val);
                 
                 if (x->left) q.push(x->left);
                 if (x->right) q.push(x->right);
             }
-            
             result.push_back(level);
             level.clear();
-            
         }
-        
         return result;
-        
     }
 };
