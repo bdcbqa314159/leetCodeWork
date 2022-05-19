@@ -5,7 +5,6 @@ public:
         for (int i = 0; i<n; i++){
             if (buy>prices[i]) buy = prices[i];
             else profit = max(profit, prices[i]-buy);
-        }
-        return profit;
+        }return profit;
     }
 };
