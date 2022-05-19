@@ -19,11 +19,11 @@ public:
         helper(node->right, x);
     }
     
-    
     vector<int> preorderTraversal(TreeNode* root) {
         if (!root) return {};
         vector<int> out;
         helper(root, out);
         return out;
     }
+
 };
