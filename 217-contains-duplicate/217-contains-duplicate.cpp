@@ -5,8 +5,8 @@ public:
         for (int i = 0; i<nums.size(); i++){
             if (umap.find(nums[i])!=umap.end())
                 return true;
-            else umap[nums[i]] =1;
-        }
-        return false;
+            else
+                umap[nums[i]] =1;
+        }return false;
     }
 };
