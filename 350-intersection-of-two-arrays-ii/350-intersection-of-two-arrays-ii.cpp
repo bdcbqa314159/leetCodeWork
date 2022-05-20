@@ -1,22 +1,28 @@
 class Solution {
 public:
+    
+    unordered_map<int,int> helper(vector<int>& x){
+        unordered_map<int,int> fx;
+        for (int i = 0; i<x.size(); i++){
+            if (fx.find(x[i]) != fx.end()) fx[x[i]]++;
+            else 
+                fx[x[i]] = 1;
+        }
+        return fx;
+    }
+    
     vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
-        
-        int i = 0, j = 0;
-        vector<int> answer;
-        sort(nums1.begin(), nums1.end());
-        sort(nums2.begin(), nums2.end());
-        
-        while(i<nums1.size() && j<nums2.size()){
-            if (nums1[i] < nums2[j]) i++;
-            else if (nums1[i] > nums2[j]) j++;
-            else{
-                answer.push_back(nums1[i]);
-                i++;
-                j++;
+        if (nums2.size() > nums1.size())
+            return intersect(nums2, nums1);
+        unordered_map<int,int> umap = helper(nums1);
+        vector<int> z;
+        for (int i = 0; i<nums2.size(); i++){
+            if (umap[nums2[i]]>0){
+                z.push_back(nums2[i]);
+                umap[nums2[i]]--;
             }
         }
-        
-        return answer;
+    
+        return z;
     }
 };
