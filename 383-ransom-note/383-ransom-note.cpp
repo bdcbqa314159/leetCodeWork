@@ -1,19 +1,21 @@
 class Solution {
 public:
     
-    vector<int> helper(string& s){
-        vector<int>u(26,0); int n = s.size();
-        for (int i = 0; i<n; i++)u[s[i]-'a']++;
-        return u;
+    vector<int> helper(const string &s){
+        vector<int> ans(26,0);
+        for (int i = 0; i<s.size(); i++){
+            ans[s[i]-'a']++;
+        }
+        return ans;
     }
     
     bool canConstruct(string ransomNote, string magazine) {
-        int n = ransomNote.size();
-        vector<int> u = helper(ransomNote), v = helper(magazine);
-        for (int i = 0; i<n; i++){
-            int j = ransomNote[i]-'a';
-            if (v[j]==0) return false;
-            else if (v[j]<u[j]) return false;
-        }return true;
+        int n = ransomNote.size(), m = magazine.size();
+        if (n>m) return false;
+        vector<int> a = helper(ransomNote), b = helper(magazine);
+        for (int i = 0; i<26; i++){
+            if (a[i]>b[i]) return false;
+        }
+        return true;
     }
 };
