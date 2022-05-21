@@ -9,13 +9,15 @@ public:
             else
                 umap[nums1[i]] = 1;
         }
+        
         vector<int> ans;
-        for (int i = 0; i<m; i++){
-            if (umap[nums2[i]]>0){
+        for (int i =0;i<m; i++){
+            if (umap[nums2[i]] >0){
                 umap[nums2[i]]--;
                 ans.push_back(nums2[i]);
             }
         }
         return ans;
+        
     }
 };
