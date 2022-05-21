@@ -8,12 +8,11 @@ public:
     }
     
     void push(int x) {
-        stack<int> b;
+        stack<int>b;
         while (!a.empty()){
             b.push(a.top());
             a.pop();
         }
-        
         a.push(x);
         while (!b.empty()){
             a.push(b.top());
