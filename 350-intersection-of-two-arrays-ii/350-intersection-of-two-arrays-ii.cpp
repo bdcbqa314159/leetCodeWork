@@ -8,7 +8,7 @@ public:
             if (umap.find(nums1[i]) != umap.end())
                 umap[nums1[i]]++;
             else
-                umap[nums1[i]]=1;
+                umap[nums1[i]] = 1;
         }
         
         for (int i = 0; i<m; i++){
