@@ -1,11 +1,11 @@
 class Solution {
 public:
     
-    vector<int> helper(string s){
-        vector<int> out(26,0);
-        for (int i =0; i<s.size(); i++)
-            out[s[i]-'a']++;
-        return out;
+    vector<int> helper(string& s){
+        vector<int> x(26,0);
+        for (int i = 0; i<s.size(); i++)
+            x[s[i]-'a']++;
+        return x;
     }
     
     bool isAnagram(string s, string t) {
