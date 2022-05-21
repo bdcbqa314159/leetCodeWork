@@ -3,7 +3,7 @@ public:
     
     int firstI, nextI, size, capacity, *arr;
     
-    MyQueue(): firstI(-1), nextI(0), size(0), capacity(3) {
+    MyQueue(): firstI(-1), nextI(0), size(0), capacity(5) {
         arr = new int[capacity];
         for (int i = 0; i<capacity; i++)
             arr[i] = 0;
