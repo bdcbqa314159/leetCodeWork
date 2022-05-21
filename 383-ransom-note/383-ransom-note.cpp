@@ -1,10 +1,10 @@
 class Solution {
 public:
     
-    vector<int> helper(const string &s){
+    vector<int> helper(string & s){
         vector<int> ans(26,0);
-        for (int i = 0; i<s.size(); i++){
-            ans[s[i]-'a']++;
+        for (auto x:s){
+            ans[x-'a']++;
         }
         return ans;
     }
