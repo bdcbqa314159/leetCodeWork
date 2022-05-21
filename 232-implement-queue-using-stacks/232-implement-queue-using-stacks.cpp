@@ -1,49 +1,38 @@
 class MyQueue {
 public:
     
-    int firstI, nextI, size, capacity, *arr;
+    stack<int>a;
     
-    MyQueue(): firstI(-1), nextI(0), size(0), capacity(5) {
-        arr = new int[capacity];
-        for (int i = 0; i<capacity; i++)
-            arr[i] = 0;
+    MyQueue() {
+        
     }
     
     void push(int x) {
-        if (size == capacity){
-            int *newArr = new int[2*capacity];
-            for (int i = 0; i<capacity; i++)
-                newArr[i] = arr[i];
-            nextI = capacity;
-            capacity*=2;
-            delete []arr;
-            arr = newArr;
+        stack<int> b;
+        while (!a.empty()){
+            b.push(a.top());
+            a.pop();
         }
-        arr[nextI] = x;
-        nextI = (nextI+1)%capacity;
-        if (firstI == -1) firstI = 0;
-        size++;
+        
+        a.push(x);
+        while (!b.empty()){
+            a.push(b.top());
+            b.pop();
+        }
     }
     
     int pop() {
-        if (empty()) return INT_MIN;
-        int ans = arr[firstI];
-        firstI = (firstI+1)%capacity;
-        size--;
-        if (size == 0){
-            firstI = -1;
-            nextI = 0;
-        }
-        return ans;
+        int t = a.top();
+        a.pop();
+        return t;
     }
     
     int peek() {
-        if (empty()) return INT_MIN;
-        return arr[firstI];
+        return a.top();
     }
     
     bool empty() {
-        return size == 0;
+        return a.empty();
     }
 };
 
