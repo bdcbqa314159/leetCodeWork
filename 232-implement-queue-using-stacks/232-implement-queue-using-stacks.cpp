@@ -32,7 +32,6 @@ public:
     
     bool empty() {
         return a.empty();
-        
     }
 };
 
