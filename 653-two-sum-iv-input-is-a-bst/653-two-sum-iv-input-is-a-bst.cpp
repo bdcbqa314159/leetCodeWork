@@ -12,7 +12,7 @@
 class Solution {
 public:
     
-    void helper(TreeNode* root, vector<int> & u){
+    void helper(TreeNode* root, vector<int>&u){
         if (!root) return;
         helper(root->left, u);
         u.push_back(root->val);
@@ -33,8 +33,9 @@ public:
         while (l<r){
             int sum = ans[l]+ans[r];
             if (sum == k) return true;
-            else if (sum<k) l++;
-            else r--;
-        }return false;
+            else if (sum>k) r--;
+            else l++;
+        }
+        return false;
     }
 };
