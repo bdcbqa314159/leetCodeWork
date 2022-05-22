@@ -1,7 +1,6 @@
 class Solution {
 public:
-    
-    vector<int> helper(string & s){
+    vector<int> helper(string &s){
         vector<int> ans(26,0);
         for (auto x:s)
             ans[x-'a']++;
