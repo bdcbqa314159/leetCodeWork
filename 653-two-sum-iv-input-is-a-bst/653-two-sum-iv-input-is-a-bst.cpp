@@ -12,20 +12,19 @@
 class Solution {
 public:
     
-    void helper(TreeNode *root, vector<int>& ans){
+    void helper(TreeNode* root, vector<int>& u){
         if (!root) return;
-        helper(root->left, ans);
-        ans.push_back(root->val);
-        helper(root->right, ans);
+        helper(root->left, u);
+        u.push_back(root->val);
+        helper(root->right, u);
     }
     
     vector<int> inOrder(TreeNode* root){
         if (!root) return {};
-        vector<int> u;
-        helper(root, u);
-        return u;
+        vector<int> ans;
+        helper(root, ans);
+        return ans;
     }
-    
     
     bool findTarget(TreeNode* root, int k) {
         if (!root) return false;
