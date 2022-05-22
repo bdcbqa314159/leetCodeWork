@@ -13,10 +13,7 @@ public:
         if (n>m) return false;
         vector<int> u = helper(ransomNote), v = helper(magazine);
         for (int i = 0; i<26; i++){
-            if (u[i]>v[i])
-                return false;
-        }
-        
-        return true;
+            if (u[i]>v[i]) return false;
+        }return true;
     }
 };
