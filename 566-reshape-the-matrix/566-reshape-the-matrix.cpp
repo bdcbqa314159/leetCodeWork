@@ -2,8 +2,7 @@ class Solution {
 public:
     vector<vector<int>> matrixReshape(vector<vector<int>>& mat, int r, int c) {
         int n = mat.size(), m = mat[0].size();
-        if (m*n != r*c) return mat;
-        
+        if (n*m != r*c) return mat;
         vector<int> v;
         vector<vector<int>> ans(r, vector<int>(c,0));
         
@@ -12,12 +11,13 @@ public:
                 v.push_back(mat[i][j]);
             }
         }
-        int k= 0;
+        
+        int k = 0;
         for (int i = 0; i<r; i++){
             for (int j = 0; j<c; j++){
-                ans[i][j] = v[k];
-                k++;
+                ans[i][j] = v[k]; k++;
             }
-        }return ans;
+        }
+        return ans;
     }
 };
