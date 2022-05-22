@@ -3,7 +3,7 @@ public:
     int firstUniqChar(string s) {
         int n = s.size();
         vector<int> ans(26,0);
-        for (auto x:s)
+        for (char x:s)
             ans[x-'a']++;
         for (int i = 0; i<n; i++){
             if (ans[s[i]-'a']==1)
