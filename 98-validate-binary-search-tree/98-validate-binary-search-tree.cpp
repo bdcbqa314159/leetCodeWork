@@ -12,14 +12,13 @@
 class Solution {
 public:
     
-    bool helper(TreeNode* root, long long m = -1e10, long long M = 1e10){
-        if (!root) return true;
+    bool helper(TreeNode* node, long long m = -1e10, long long M = 1e10){
+        if (!node) return true;
         bool l, r;
-        l = helper(root->left, m, root->val);
-        r = helper(root->right, root->val, M);
-        return r && l && m<root->val && root->val<M;
+        l = helper(node->left, m, node->val);
+        r = helper(node->right, node->val, M);
+        return l&&r && m<node->val&&node->val<M;
     }
-    
     
     bool isValidBST(TreeNode* root) {
         return helper(root);
