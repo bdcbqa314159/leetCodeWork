@@ -6,13 +6,13 @@ public:
         
         int l = 0, r = 0;
         unordered_map<char, int> umap;
+        
         while (l<n && r<n){
             char e = s[r];
-            
-            if (umap.find(e)!=umap.end())
+            if (umap.find(e)!= umap.end())
                 l = max(l, umap[e]+1);
-            ans = max(ans,r-l+1);
             umap[e] = r;
+            ans = max(ans, r-l+1);
             r++;
         }return ans;
     }
