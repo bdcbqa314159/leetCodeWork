@@ -8,11 +8,13 @@ public:
         unordered_map<char, int> umap;
         while (l<n && r<n){
             char e = s[r];
-            if (umap.find(e)!=umap.end())
-                l = max(l, umap[e]+1);
+            if (umap.find(e)!=umap.end()){
+                l = max(l,  umap[e]+1);
+            }
             ans = max(ans, r-l+1);
-            umap[e]=r;
+            umap[e] = r;
             r++;
-        }return ans;
+        }
+        return ans;
     }
 };
