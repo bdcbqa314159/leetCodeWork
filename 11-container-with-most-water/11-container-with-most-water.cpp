@@ -5,11 +5,12 @@ public:
         while (l<r){
             int a = height[l], b = height[r];
             area = min(a,b)*(r-l);
-            maxArea = max(area, maxArea);
+            maxArea = max(area,maxArea);
             
             if (a<b) l++;
             else r--;
         }
+        
         return maxArea;
     }
 };
