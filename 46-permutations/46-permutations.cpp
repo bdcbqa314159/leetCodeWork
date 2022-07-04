@@ -2,15 +2,14 @@ class Solution {
 public:
     
     void solve(vector<vector<int>> &ans, vector<int> &nums, int index){
-        if (index >= nums.size()){
+        if (index == nums.size()){
             ans.push_back(nums);
             return;
         }
-        
         for (int i = index; i<nums.size(); i++){
-            swap(nums[index], nums[i]);
+            swap(nums[i], nums[index]);
             solve(ans, nums, index+1);
-            swap(nums[i],nums[index]);
+            swap(nums[i], nums[index]);
         }
         return;
     }
