@@ -14,10 +14,11 @@ public:
     
     bool helper(TreeNode* l, TreeNode* r){
         if (!l && !r) return true;
-        if ( (!l&&r) ||(!r&&l)) return false;
+        if ((!l&&r) || (!r&&l)) return false;
         if (l->val != r->val) return false;
         return helper(l->left, r->right)&&helper(l->right, r->left);
     }
+    
     
     bool isSymmetric(TreeNode* root) {
         if (!root) return true;
