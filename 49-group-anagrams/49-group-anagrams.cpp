@@ -12,7 +12,7 @@ public:
             umap[key].push_back(str);
         }
         
-        for (it = umap.begin(); it!=umap.end(); it++)
+        for (it = umap.begin(); it != umap.end(); it++)
             answer.push_back(it->second);
         return answer;
     }
