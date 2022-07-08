@@ -6,7 +6,7 @@ public:
         int profit = 0, buy = prices[0];
         for (int i = 1; i<n; i++){
             if (prices[i]<prices[i-1]){
-                profit += prices[i-1]-buy;
+                profit+=(prices[i-1]-buy);
                 buy = prices[i];
             }
         }
