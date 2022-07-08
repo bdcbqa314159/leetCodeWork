@@ -10,7 +10,7 @@ public:
                 buy = prices[i];
             }
         }
-        profit+=prices[n-1]-buy;
+        profit+=(prices[n-1]-buy);
         return profit;
     }
 };
