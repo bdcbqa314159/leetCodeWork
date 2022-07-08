@@ -17,6 +17,6 @@ public:
             v1 = v2;
             v2 = v;
         }
-        return v2;
+        return v;
     }
 };
