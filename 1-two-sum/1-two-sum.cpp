@@ -8,7 +8,7 @@ public:
             if (umap.find(diff)!=umap.end())
                 break;
             else
-                umap[nums[i]]=i;
+                umap[nums[i]] = i;
         }
         return {i,umap[diff]};
     }
