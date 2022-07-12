@@ -9,12 +9,11 @@ public:
     
     void push(int val) {
         s1.push(val);
-        s2.push((!s2.empty() && s2.top()<val) ? s2.top():val);
+        s2.push((!s2.empty() && s2.top()<val) ? s2.top() : val);
     }
     
     void pop() {
-        s1.pop();
-        s2.pop();
+        s1.pop(); s2.pop();
     }
     
     int top() {
