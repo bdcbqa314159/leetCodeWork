@@ -22,14 +22,14 @@ public:
 class Solution {
 public:
     
-    Node *cloneNode(Node* node, unordered_map<int, Node*> &visited){
+    Node* cloneNode(Node* node, unordered_map<int, Node*>&visited){
         Node *newNode = new Node(node->val);
-        visited.insert({node->val, newNode});
-        for( Node *n: node->neighbors){
+        visited.insert({newNode->val, newNode});
+        for (Node *n: node->neighbors){
             auto it = visited.find(n->val);
             if (it == visited.end()){
-                Node *cloned = cloneNode(n, visited);
-                newNode->neighbors.push_back(cloned);
+                Node *clone = cloneNode(n, visited);
+                newNode->neighbors.push_back(clone);
             }
             else{
                 newNode->neighbors.push_back(it->second);
@@ -38,10 +38,9 @@ public:
         return newNode;
     }
     
-    
     Node* cloneGraph(Node* node) {
         if (!node) return 0;
-        unordered_map<int,Node*> visited;
+        unordered_map<int, Node*> visited;
         return cloneNode(node, visited);
     }
 };
