@@ -3,6 +3,7 @@ public:
     
     stack<int> s1, s2;
     
+    
     MinStack() {
         
     }
