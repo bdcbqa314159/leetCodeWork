@@ -15,6 +15,7 @@ public:
     void pop() {
         s1.pop();
         s2.pop();
+        
     }
     
     int top() {
