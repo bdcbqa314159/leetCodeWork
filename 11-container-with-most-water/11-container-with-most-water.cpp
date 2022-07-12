@@ -1,13 +1,19 @@
 class Solution {
 public:
-    int maxArea(vector<int>& height) {
-        int l = 0, r = height.size()-1, area = 0, maxArea = 0;
-        while (l<r){
-            area = min(height[l], height[r])*(r-l);
-            maxArea = max(area, maxArea);
-            if (height[l]<height[r]) l++;
-            else r--;
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        string key;
+        vector<vector<string>> answer;
+        unordered_map<string, vector<string>> umap;
+        unordered_map<string, vector<string>>::iterator it;
+        
+        for (string str: strs){
+            key = str;
+            sort(key.begin(), key.end());
+            umap[key].push_back(str);
         }
-        return maxArea;
+        
+        for (it = umap.begin(); it != umap.end(); it++)
+            answer.push_back(it->second);
+        return answer;
     }
 };
