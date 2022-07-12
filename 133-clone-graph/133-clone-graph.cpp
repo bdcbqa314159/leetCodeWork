@@ -22,7 +22,7 @@ public:
 class Solution {
 public:
     
-    Node *cloneNode(Node *node, unordered_map<int, Node *> &visited){
+    Node *cloneNode(Node *node, unordered_map<int, Node*> &visited){
         Node *newNode = new Node(node->val);
         visited.insert({node->val, newNode});
         
@@ -38,6 +38,8 @@ public:
         }
         return newNode;
     }
+    
+    
     
     Node* cloneGraph(Node* node) {
         if (!node) return 0;
