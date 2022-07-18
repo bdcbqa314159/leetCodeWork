@@ -12,10 +12,10 @@
 class Solution {
 public:
     
-    bool helper(TreeNode* l, TreeNode* r){
-        if (!l && !r) return true;
-        if ( (!r&&l) || (!l&&r) || (r->val != l->val) ) return false;
-        return helper(l->left, r->right)&&helper(l->right, r->left);
+    bool helper(TreeNode* r, TreeNode* l){
+        if (!r && !l) return true;
+        if ((!r&&l) || (r&&!l) || (r->val != l->val)) return false;
+        return helper(r->left, l->right)&&helper(r->right, l->left);
     }
     
     bool isSymmetric(TreeNode* root) {
