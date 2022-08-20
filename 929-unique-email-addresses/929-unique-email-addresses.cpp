@@ -12,7 +12,6 @@ public:
             int plus = user.find('+');
             user = user.substr(0,plus);
             
-            string temp = "";
             int i = user.find('.');
             
             while (i > -1){                
@@ -20,10 +19,6 @@ public:
                 i = user.find('.');
             }
             
-            if (temp!="") user = temp;
-            
-            
-        
             uniqueEmails.insert(make_pair(user, domain));
         
         }
