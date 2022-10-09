@@ -12,30 +12,32 @@
 class Solution {
 public:
     
-    void helper(TreeNode* root, vector<int>&u){
-        if (!root) return;
-        helper(root->left, u);
-        u.push_back(root->val);
-        helper(root->right, u);
+    void helper(TreeNode* node, vector<int>& u){
+        if (!node) return;
+        helper(node->left, u);
+        u.push_back(node->val);
+        helper(node->right, u);
     }
     
-    vector<int> inOrder(TreeNode* root){
-        if (!root) return {};
-        vector<int> ans;
-        helper(root, ans);
-        return ans;
+    vector<int> inOrder(TreeNode* node){
+        vector<int> u;
+        if (!node) return u;
+        helper(node, u);
+        return u;
     }
+    
     
     bool findTarget(TreeNode* root, int k) {
         if (!root) return false;
-        vector<int> ans = inOrder(root);
-        int l = 0, r = ans.size()-1;
-        while (l<r){
-            int sum = ans[l]+ans[r];
+        vector<int> y = inOrder(root);
+        int l = 0, r = y.size()-1;
+        while(l<r){
+            int sum = y[l]+y[r];
             if (sum == k) return true;
-            else if (sum>k) r--;
-            else l++;
+            else if (sum<k) l++;
+            else r--;
         }
         return false;
+        
     }
 };
