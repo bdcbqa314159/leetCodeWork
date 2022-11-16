@@ -15,14 +15,14 @@ public:
         int myGuess{l+(r-l)/2};
         
         while (l<=r){
-            myGuess = l+(r-l)/2;
+            
             if (guess(myGuess) == 0)
                 break;
             else if(guess(myGuess) == -1)
                 r = myGuess-1;
             else
                 l = myGuess+1;
-            
+            myGuess = l+(r-l)/2;
         }
         return myGuess;
     }
