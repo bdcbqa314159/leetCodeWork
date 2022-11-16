@@ -2,28 +2,27 @@ class Solution {
 public:
     bool checkIfExist(vector<int>& arr) {
         unordered_map<int,int> umap;
-        for (auto x:arr){
-            if (x == 0){
-                auto m = umap.find(0);
-                if (m!=umap.end()) return true;
-                else umap[0]++;
+        for (auto num: arr){
+            if (num == 0){
+                auto x = umap.find(num);
+                if (x != umap.end())
+                    return true;
+                else umap[num]++;
             }
             else{
-                int doubleX = x*2;
-            cout<<x<<" double: "<<doubleX<<endl;
-            if (x % 2 == 0){
-                int midX = x/2;
-                cout<<x<<" mid: "<<midX<<endl;
-                auto m = umap.find(midX);
-                if (m!=umap.end()) return true;
-                else umap[x]++;
-            } 
-            
-            auto M = umap.find(doubleX);
-            if (M!=umap.end()) return true;
-            else umap[x]++;
+                int doubleNum = 2*num;
+                if (num%2 == 0){
+                    int midNum = num/2;
+                    auto x = umap.find(midNum);
+                    if (x != umap.end())
+                        return true;
+                    else umap[num]++; 
+                }
+
+                auto x = umap.find(doubleNum);
+                if (x != umap.end()) return true;
+                else umap[num]++;
             }
-            
         }
         return false;
     }
