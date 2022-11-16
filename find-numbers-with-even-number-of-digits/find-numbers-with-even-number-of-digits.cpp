@@ -1,23 +1,21 @@
 class Solution {
 public:
     
-    int noDigits(int a){
-        int ans = 0;
-        while (a){
-            a/=10;
-            ans++;
+    int noDigits(int n){
+        int answer{};
+        while(n!=0){
+            n/=10;
+            answer++;      
         }
-        return ans;
+        return answer;
     }
     
-    
     int findNumbers(vector<int>& nums) {
-        int ans = 0;
-        for (int num: nums){
+        int answer = 0;
+        for (auto num: nums){
             if (noDigits(num)%2 == 0)
-                ans++;
+                answer++;
         }
-        
-        return ans;
+        return answer;
     }
 };
