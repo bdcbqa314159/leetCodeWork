@@ -10,16 +10,20 @@
 class Solution {
 public:
     int guessNumber(int n) {
-        int low = 1, high = n;
+        int l = 1;
+        int r = n;
+        int myGuess{l+(r-l)/2};
         
-        while (low <= high) {
-            int mid = ((long)low+(long)high)/2;
-            int flag = guess(mid);
-            if(flag == 0) return mid;
-            else if(flag == 1) low = mid + 1;
-            else high = mid - 1;
+        while (l<=r){
+            myGuess = l+(r-l)/2;
+            if (guess(myGuess) == 0)
+                break;
+            else if(guess(myGuess) == -1)
+                r = myGuess-1;
+            else
+                l = myGuess+1;
+            
         }
-        
-        return -1;
+        return myGuess;
     }
 };
