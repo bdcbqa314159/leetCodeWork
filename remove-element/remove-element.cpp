@@ -8,8 +8,6 @@ public:
                 nums[i] = -1;k++;
             }
         
-        cout<<k<<endl;
-        
         int j = 0;
         for (int i = 0; i<n; i++){
             if (nums[i]!=-1){
