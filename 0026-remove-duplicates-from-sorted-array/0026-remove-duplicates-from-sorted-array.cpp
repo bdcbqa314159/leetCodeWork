@@ -9,6 +9,6 @@ public:
                 position++;
             }
         }
-        return position;
+        return position++;
     }
 };
