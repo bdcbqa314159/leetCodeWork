@@ -2,12 +2,14 @@ class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
         vector<int> result{};
-        if (matrix.size() == 0) return result;
-        int h = matrix.size(), w = matrix[0].size();
+        int h = matrix.size();
+        if (h == 0) return result;
+        int w = matrix[0].size();
+        
         int i = 0, j = 0;
         int step = 1;
         
-        while(w>0 && h>0){
+        while (w>0 && h>0){
             for (int k = 0; k<w; k++){
                 result.push_back(matrix[i][j]);
                 j+=step;
@@ -25,8 +27,6 @@ public:
             j+=step;
             w--;
         }
-        
-        
         return result;
     }
 };
