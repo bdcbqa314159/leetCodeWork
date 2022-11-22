@@ -11,7 +11,7 @@ public:
                 answer[1] = r+1;
                 break;
             }
-            else if (ans<target) l++;
+            else if(ans<target) l++;
             else r--;
         }
         
