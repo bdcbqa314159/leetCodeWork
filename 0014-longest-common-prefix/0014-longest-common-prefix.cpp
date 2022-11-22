@@ -6,19 +6,15 @@ public:
         string prefix = strs[0];
         
         for (int i = 1; i<N; i++){
-            string word = strs[i];
-            int l_p = prefix.size(), l_w = word.size();
-            
-            int index = 0;
-            while (index < l_p && index < l_w){
-                if (prefix[index]!=word[index]) break;
-                index++;
+            string str = strs[i];
+            int k = 0;
+            while (k<prefix.size() && k<str.size()){
+                if (prefix[k]!=str[k]) break;
+                k++;
             }
             
-            prefix = prefix.substr(0,index);
-            
+            prefix = prefix.substr(0, k);
         }
-        
         return prefix;
     }
 };
