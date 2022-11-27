@@ -8,7 +8,6 @@ public:
                 j++;
             }
         }
-        for (int i = j; i<n; i++)
-            nums[i] = 0;
+        for (int i = j; i<n; i++) nums[i] = 0;
     }
 };
