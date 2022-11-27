@@ -6,7 +6,7 @@ public:
         while (j<nums.size()){
             if (sum>=target){
                 len = min(len, j-i);
-                sum -= nums[i];
+                sum-=nums[i];
                 i++;
             }
             else{
@@ -14,6 +14,7 @@ public:
                 j++;
             }
         }
-        return (len==INT_MAX)?0:len;
+        return (len == INT_MAX)?0:len;
     }
+    
 };
