@@ -1,15 +1,14 @@
 class Solution {
 public:
     string removeDuplicateLetters(string s) {
-        vector<bool> visited(26, false);
+        vector<bool> visited(26,false);
         vector<int> count(26, 0);
         stack<char> st;
         
-        for (char ch: s)
+        for (char ch:s)
             count[ch-'a']++;
         
         for (char ch: s){
-            
             int index = ch-'a';
             count[index]--;
             
@@ -32,5 +31,4 @@ public:
         }
         return res;
     }
-    
 };
