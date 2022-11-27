@@ -1,15 +1,13 @@
 class Solution {
 public:
     int thirdMax(vector<int>& nums) {
-        set<int> set_;
-        for (auto n: nums){
-            set_.insert(n);
-            if (set_.size()>3)
-                set_.erase(set_.begin());
+        set<int> n;
+        for (auto x: nums){
+            n.insert(x);
+            if (n.size()>3)
+                n.erase(n.begin());
         }
-        if (set_.size() == 3)
-            return *set_.begin();
-        else
-            return *set_.rbegin();
+        if (n.size() == 3) return *n.begin();
+        else return *n.rbegin();
     }
 };
