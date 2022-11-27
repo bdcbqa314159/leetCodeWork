@@ -18,12 +18,12 @@ public:
                 visited[st.top()-'a'] = false;
                 st.pop();
             }
+            
             if (!visited[index]){
                 st.push(ch);
                 visited[index] = true;
             }
         }
-        
         string res("");
         while (!st.empty()){
             res = st.top()+res;
