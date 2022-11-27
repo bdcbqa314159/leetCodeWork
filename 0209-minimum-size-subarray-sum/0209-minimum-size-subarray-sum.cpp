@@ -15,7 +15,7 @@ public:
                 j++;
             }
         }
-        return (len==INT_MAX)? 0: len;
+        
+        return (len == INT_MAX)?0:len;
     }
 };
-
