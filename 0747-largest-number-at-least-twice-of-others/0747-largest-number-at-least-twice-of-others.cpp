@@ -9,10 +9,8 @@ public:
             }
         }
         for (int i = 0; i<n; i++){
-            if (ans!=nums[i] && ans<2*nums[i])
-                return -1;
+            if (ans!=nums[i] && ans<2*nums[i]) return -1;
         }
-        
         return idx;
     }
 };
