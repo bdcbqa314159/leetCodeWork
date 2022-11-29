@@ -7,6 +7,7 @@ public:
             arr[i] = rightMax;
             rightMax = newMax;
         }
+        
         return arr;
     }
 };
