@@ -2,12 +2,11 @@ class Solution {
 public:
     bool checkIfExist(vector<int>& arr) {
         unordered_map<int,int> umap;
-        
         for (auto n: arr){
             if (n == 0){
                 auto x = umap.find(n);
                 if (x!=umap.end()) return true;
-                else umap[n]++;
+                umap[n]++;
             }
             else{
                 int doubleN = 2*n;
@@ -18,11 +17,10 @@ public:
                     umap[n]++;
                 }
                 auto x = umap.find(doubleN);
-                if (x!=umap.end()) return true;
-                umap[n]++;
+                    if (x!=umap.end()) return true;
+                    umap[n]++;
             }
         }
-        
         return false;
     }
 };
