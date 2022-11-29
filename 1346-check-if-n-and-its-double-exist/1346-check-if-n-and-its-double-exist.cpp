@@ -15,13 +15,14 @@ public:
                     int midN = n/2;
                     auto x = umap.find(midN);
                     if (x!=umap.end()) return true;
-                    else umap[n]++;
+                    umap[n]++;
                 }
                 auto x = umap.find(doubleN);
                 if (x!=umap.end()) return true;
-                else umap[n]++;
+                umap[n]++;
             }
         }
+        
         return false;
     }
 };
