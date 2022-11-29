@@ -2,19 +2,19 @@ class Solution {
 public:
     
     int helper(int n){
-        int ans = 0;
-        while (n){
+        int res = 0;
+        while(n){
             n/=10;
-            ans++;
+            res++;
         }
-        return ans;
+        return res;
     }
+    
     
     int findNumbers(vector<int>& nums) {
         int count = 0;
-        for (auto n: nums){
+        for (auto n: nums)
             if (helper(n)%2 == 0) count++;
-        }
         return count;
     }
 };
