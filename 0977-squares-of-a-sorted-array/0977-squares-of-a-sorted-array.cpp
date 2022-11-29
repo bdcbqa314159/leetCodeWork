@@ -7,6 +7,7 @@ public:
         vector<int> ans(n);
         
         while (l<=r){
+            
             a = nums[l]*nums[l];
             b = nums[r]*nums[r];
             
@@ -18,8 +19,8 @@ public:
                 ans[last] = a;
                 l++;
             }
-            
             last--;
+            
         }
         
         return ans;
