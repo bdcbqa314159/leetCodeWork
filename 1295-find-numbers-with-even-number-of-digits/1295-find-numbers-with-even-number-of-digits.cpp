@@ -2,12 +2,12 @@ class Solution {
 public:
     
     int helper(int n){
-        int res = 0;
+        int ans = 0;
         while (n){
             n/=10;
-            res++;
+            ans++;
         }
-        return res;
+        return ans;
     }
     
     int findNumbers(vector<int>& nums) {
