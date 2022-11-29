@@ -6,8 +6,7 @@ public:
         while (n){
             n/=10;
             ans++;
-        }
-        return ans;
+        }return ans;
     }
     
     int findNumbers(vector<int>& nums) {
