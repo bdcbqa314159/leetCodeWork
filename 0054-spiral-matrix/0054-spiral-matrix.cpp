@@ -11,6 +11,7 @@ public:
         int index = 0;
         
         while (h>0 && w>0){
+            
             for (int k = 0; k<w; k++){
                 result[index] = matrix[i][j];
                 index++;
@@ -32,7 +33,8 @@ public:
             j+=step;
             w--;
         }
-        return result;
         
+        
+        return result;
     }
 };
