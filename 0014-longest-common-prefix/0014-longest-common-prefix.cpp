@@ -4,10 +4,10 @@ public:
         int n = strs.size();
         string prefix = strs[0];
         for (int i = 1; i<n; i++){
-            string str = strs[i];
+            string other = strs[i];
             int k = 0;
-            while (k<prefix.size() && k<str.size()){
-                if (prefix[k]!=str[k]) break;
+            while (k<prefix.size() && k<other.size()){
+                if (prefix[k]!=other[k]) break;
                 k++;
             }
             prefix = prefix.substr(0,k);
