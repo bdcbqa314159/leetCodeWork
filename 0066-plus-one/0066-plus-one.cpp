@@ -9,7 +9,6 @@ public:
             }
             digits[i] = 0;
         }
-        
         digits.resize(n+1);
         digits[0] = 1;
         return digits;
