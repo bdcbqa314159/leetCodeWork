@@ -7,15 +7,14 @@ public:
         while (j<n){
             if (sum>=target){
                 len = min(len, j-i);
-                sum -= nums[i];
+                sum-=nums[i];
                 i++;
             }
             else{
                 sum+=nums[j];
                 j++;
             }
-            
         }
-        return len == INT_MAX? 0: len;
+        return len == INT_MAX? 0:len;
     }
 };
