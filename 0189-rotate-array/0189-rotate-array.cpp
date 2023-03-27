@@ -1,14 +1,12 @@
 class Solution {
 public:
     
-    void helper(vector<int>& nums, int l , int r){
+    void helper(vector<int>&nums, int l, int r){
         while (l<=r){
-            swap(nums[l], nums[r]);
-            l++; r--;
+            swap(nums[l], nums[r]);l++;r--;
         }
         return;
     }
-    
     
     void rotate(vector<int>& nums, int k) {
         int n = nums.size();
@@ -18,5 +16,4 @@ public:
         helper(nums, k, n-1);
         return;
     }
-    
 };
