@@ -11,7 +11,9 @@ public:
             }
             
             else curr = 0;
+            
             i++;
+            
         }
         
         
