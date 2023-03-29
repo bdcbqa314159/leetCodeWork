@@ -1,14 +1,13 @@
 class Solution {
 public:
     string removeDuplicateLetters(string s) {
-        vector<int> count(26,0);
-        vector<bool> visited(26,false);
+        vector<int> count(26, 0);
+        vector<bool> visited(26, false);
         stack<char> st;
         
         for (char c: s) count[c-'a']++;
         for (char c: s){
             int index = c-'a';
-            
             count[index]--;
             
             if (visited[index]) continue;
@@ -20,16 +19,13 @@ public:
             
             st.push(c);
             visited[index] = true;
-            
         }
         
-        string res;
-        
+        string result;
         while (!st.empty()){
-            res = st.top()+res;
+            result = st.top()+result;
             st.pop();
         }
-        
-        return res;
+        return result;
     }
 };
