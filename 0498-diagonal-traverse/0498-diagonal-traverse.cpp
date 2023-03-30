@@ -8,6 +8,7 @@ public:
         int total = m*n;
         
         vector<int> ans(total);
+        
         int i = 0, j = 0;
         bool up = true;
         
@@ -15,23 +16,24 @@ public:
             ans[k] = mat[i][j];
             
             if (up && (i == 0 || j == n-1)){
-                if (j==n-1)i++;
+                if (j == n-1) i++;
                 else j++;
+                
                 up = !up;
             }
             
-            else if(!up && (j==0 || i == m-1)){
+            else if (!up && (j == 0 || i == m-1)){
                 if (i == m-1) j++;
                 else i++;
+                
                 up = !up;
             }
             
             else{
-                if (up){i--; j++;}
-                else {i++; j--;}
+                if (up) {i--; j++;}
+                else{i++; j--;}
             }
         }
-        
         return ans;
     }
 };
