@@ -18,22 +18,21 @@ public:
             if (up && (i == 0 || j == n-1)){
                 if (j == n-1) i++;
                 else j++;
-                
                 up = !up;
             }
             
-            else if (!up && (j == 0 || i == m-1)){
+            else if (!up && (j== 0 || i == m-1)){
                 if (i == m-1) j++;
                 else i++;
-                
                 up = !up;
             }
             
             else{
                 if (up) {i--; j++;}
-                else{i++; j--;}
+                else {j--; i++;}
             }
         }
+    
         return ans;
     }
 };
