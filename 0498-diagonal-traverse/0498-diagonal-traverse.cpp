@@ -1,10 +1,11 @@
 class Solution {
 public:
     vector<int> findDiagonalOrder(vector<vector<int>>& mat) {
-        if (mat.size() == 0) return{};
-        if (mat[0].size() == 0) return{};
+        if (mat.size() == 0) return {};
+        if (mat[0].size() == 0) return {};
         
         int m = mat.size(), n = mat[0].size();
+        
         int total = m*n;
         
         vector<int> ans(total);
@@ -12,9 +13,8 @@ public:
         int i = 0, j = 0;
         bool up = true;
         
-        for (int k = 0; k<total; k++){
+        for (int k = 0; k< total; k++){
             ans[k] = mat[i][j];
-            
             if (up && (i == 0 || j == n-1)){
                 if (j == n-1) i++;
                 else j++;
@@ -27,12 +27,10 @@ public:
                 up = !up;
             }
             
-            else {
+            else{
                 if (up){i--; j++;}
-                else{i++; j--;}
+                else {i++; j--;}
             }
-        }
-        
-        return ans;
+        }return ans;
     }
 };
