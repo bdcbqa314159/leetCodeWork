@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    bool helper(int i, unordered_map<int,int>&u){
+    bool helper(int i, unordered_map<int,int>& u){
         return u.find(i)!=u.end();
     }
     
@@ -17,7 +17,6 @@ public:
                     if (helper(n/2, umap)) return true;
                     umap[n]++;
                 }
-                
                 if (helper(2*n, umap)) return true;
                 umap[n]++;
             }
