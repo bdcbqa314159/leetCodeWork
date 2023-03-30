@@ -4,7 +4,8 @@ public:
         int n = nums.size(), l = 0, r = n-1;
         int a = 0, b = 0, last = r;
         vector<int> ans(n);
-        while(l<=r){
+        
+        while (l<=r){
             a = nums[l]*nums[l];
             b = nums[r]*nums[r];
             
@@ -15,7 +16,6 @@ public:
                 ans[last] = a; l++;
             }
             last--;
-        }
-        return ans;
+        }return ans;
     }
 };
