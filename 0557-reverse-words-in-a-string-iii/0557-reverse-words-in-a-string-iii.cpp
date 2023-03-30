@@ -3,9 +3,9 @@ public:
     string reverseWords(string s) {
         stringstream ss(s);
         string word, ans;
-        while (ss>>word){
+        while (ss >> word){
             reverse(word.begin(), word.end());
-            ans+=word+" ";
+            ans+= word+" ";
         }
         return ans.substr(0, ans.size()-1);
     }
