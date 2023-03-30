@@ -12,7 +12,7 @@ public:
     
     int findNumbers(vector<int>& nums) {
         int count = 0;
-        for (int n: nums){
+        for (int n:nums){
             if (helper(n)%2 == 0) count++;
         }
         return count;
