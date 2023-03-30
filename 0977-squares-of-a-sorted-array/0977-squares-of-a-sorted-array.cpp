@@ -12,10 +12,12 @@ public:
             if (a<b){
                 ans[last] = b; r--;
             }
+            
             else{
                 ans[last] = a; l++;
             }
             last--;
-        }return ans;
+        }
+        return ans;
     }
 };
