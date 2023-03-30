@@ -7,7 +7,7 @@ public:
     
     bool checkIfExist(vector<int>& arr) {
         unordered_map<int,int> umap;
-        for (int n : arr){
+        for (int n: arr){
             if (n == 0){
                 if (helper(n, umap)) return true;
                 umap[n]++;
@@ -17,6 +17,7 @@ public:
                     if (helper(n/2, umap)) return true;
                     umap[n]++;
                 }
+                
                 if (helper(2*n, umap)) return true;
                 umap[n]++;
             }
