@@ -7,6 +7,7 @@ public:
         while (i<n && i+1<n){
             if (arr[i]<=arr[i+1]) return false;
             i++;
-        }return true;
+        }
+        return true;
     }
 };
