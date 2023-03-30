@@ -3,7 +3,7 @@ public:
     
     int helper(int n){
         int ans = 0;
-        while (n){
+        while(n){
             n/=10;
             ans++;
         }
@@ -12,10 +12,8 @@ public:
     
     int findNumbers(vector<int>& nums) {
         int count = 0;
-        for (auto n: nums){
+        for (auto n: nums)
             if (helper(n)%2 == 0) count++;
-        }
-        
         return count;
     }
 };
