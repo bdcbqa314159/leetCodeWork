@@ -10,8 +10,8 @@ public:
             digits[i] = 0;
         }
         
-        vector<int> newDigits(n+1, 0);
-        newDigits[0] = 1;
-        return newDigits;
+        digits[0] = 1;
+        digits.push_back(0);
+        return digits;
     }
 };
