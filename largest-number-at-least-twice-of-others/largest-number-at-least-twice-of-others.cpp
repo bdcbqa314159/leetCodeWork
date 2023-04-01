@@ -8,11 +8,10 @@ public:
                 max1 = nums[i];
                 idx = i;
             }
-            else if(nums[i] > max2){
+            else if (nums[i]>max2){
                 max2 = nums[i];
             }
         }
-        
-        return max1>=2*max2 ? idx: -1;
+        return max1>=2*max2? idx: -1;
     }
 };
