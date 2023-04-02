@@ -2,23 +2,18 @@ class Solution {
 public:
     string addBinary(string a, string b) {
         string result;
+        int i = a.size() -1, j = b.size()-1, carry = 0;
         
-        int carry{};
-        
-        int i1 = a.size()-1;
-        int i2 = b.size()-1;
-        
-        while(i1>=0 || i2>=0 || carry>0){
-            int v1 = i1>=0 ? a[i1]-'0':0;
-            int v2 = i2>=0 ? b[i2]-'0':0;
-            
-            int sum = v1+v2+carry;
-            
-            result.push_back((sum&1)+'0');
-            carry = (sum>>1)&1;
-            
-            i1--;
-            i2--;
+        while (i>=0 || j>=0 || carry>0){
+            int sum = carry;
+            if (i>=0){
+                sum+=a[i]-'0'; i--;
+            }
+            if (j>=0){
+                sum+=b[j]-'0';j--;
+            }
+            result += to_string(sum%2);
+            carry = sum/2;
         }
         
         reverse(result.begin(), result.end());
