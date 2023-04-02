@@ -1,35 +1,40 @@
 class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
-        vector<int> result;
-        if (matrix.size() == 0) return result;
-        
-        int h = matrix.size();
-        int w = matrix[0].size();
+        if (matrix.size() == 0) return {};
+        int i = 0, j = 0;
+        int h = matrix.size(), w = matrix[0].size();
         
         int step = 1;
-        int i{}, j{};
         
-        while (w>0 && h>0){
+        vector<int> result(h*w);
+        
+        int index = 0;
+        
+        while(h>0 && w>0){
+            
             for (int k = 0; k<w; k++){
-                result.push_back(matrix[i][j]);
+                result[index] = matrix[i][j];
+                index++;
                 j+=step;
             }
             
             j-=step;
             i+=step;
-            
             h--;
             
             for (int k = 0; k<h; k++){
-                result.push_back(matrix[i][j]);
+                result[index] = matrix[i][j];
+                index++;
                 i+=step;
             }
             i-=step;
-            step *= -1;
+            step*=-1;
             j+=step;
             w--;
+            
         }
+        
         return result;
     }
 };
