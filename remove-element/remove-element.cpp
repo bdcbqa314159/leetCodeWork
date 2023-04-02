@@ -3,7 +3,7 @@ public:
     int removeElement(vector<int>& nums, int val) {
         int position = 0, n = nums.size();
         for (int i = 0; i<n; i++){
-            if (nums[i]!=val){
+            if (nums[i] != val){
                 nums[position] = nums[i];
                 position++;
             }
