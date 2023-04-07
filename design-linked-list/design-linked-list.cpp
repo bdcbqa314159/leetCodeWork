@@ -22,26 +22,29 @@ public:
         
     }
     
-    // int get(int index) {
-    //     if (index>=size) return -1;
-    //     Node* temp = head->next;
-    //     for (int i = 0; i<index; i++) temp = temp->next;
-    //     return temp->val;
-    // }
         int get(int index) {
         if (index<0 || index>=size) return -1;
         Node *temp = head->next;
         for (int i = 0; i<index; i++) temp = temp->next;
         return temp->val;
     }
- 
     
+        
     void addAtHead(int val) {
         Node* temp = head->next;
         head->next = new Node(val);
         head->next->next = temp;
         size++;
+        return;
     }
+ 
+    
+    // void addAtHead(int val) {
+    //     Node* temp = head->next;
+    //     head->next = new Node(val);
+    //     head->next->next = temp;
+    //     size++;
+    // }
     
     void addAtTail(int val) {
         Node* temp = head;
