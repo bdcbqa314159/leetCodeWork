@@ -1,16 +1,16 @@
 class Node{
-    public:
-    int val{0};
-    Node* next{nullptr};
     
+    public:
+    int val{};
+    Node *next{nullptr};
     Node(){}
-    Node(int val):val(val), next(nullptr){}
+    Node(int val):val(val),next(nullptr){}
+    
 };
-
 
 class MyLinkedList {
 public:
-    int size{0};
+    int size{};
     Node* head = new Node(0);
     
     MyLinkedList() {
@@ -20,7 +20,7 @@ public:
     int get(int index) {
         if (index<0 || index>=size) return -1;
         Node* temp = head->next;
-        for (int i =0; i<index; i++) temp = temp->next;
+        for (int i = 0; i<index; i++) temp = temp->next;
         return temp->val;
     }
     
@@ -41,7 +41,7 @@ public:
     }
     
     void addAtIndex(int index, int val) {
-        if (index<0 || index > size) return;
+        if (index<0 || index>size) return;
         Node* temp = head;
         for (int i = 0; i<index; i++) temp = temp->next;
         Node* temp1 = temp->next;
@@ -59,7 +59,7 @@ public:
         temp->next = temp1->next;
         temp1->next = nullptr;
         size--;
-        return;
+        return ;
     }
 };
 
