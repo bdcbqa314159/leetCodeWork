@@ -22,18 +22,18 @@ public:
         
     }
     
-    int get(int index) {
-        if (index>=size) return -1;
-        Node* temp = head->next;
+    // int get(int index) {
+    //     if (index>=size) return -1;
+    //     Node* temp = head->next;
+    //     for (int i = 0; i<index; i++) temp = temp->next;
+    //     return temp->val;
+    // }
+        int get(int index) {
+        if (index<0 || index>=size) return -1;
+        Node *temp = head->next;
         for (int i = 0; i<index; i++) temp = temp->next;
         return temp->val;
     }
-//         int get(int index) {
-//         if (index<0 || index>=size) return -1;
-//         Node *temp = head->next;
-//         for (int i = 0; i<index; i++) temp = temp->next;
-//         return temp->val;
-//     }
  
     
     void addAtHead(int val) {
