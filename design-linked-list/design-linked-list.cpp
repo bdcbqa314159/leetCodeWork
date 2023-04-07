@@ -37,29 +37,25 @@ public:
         size++;
     }
     
-        void addAtTail(int val) {
+
+    
+    void addAtTail(int val) {
         Node* temp = head;
         while (temp->next) temp = temp->next;
         temp->next = new Node(val);
         size++;
-        return;
     }
     
-//     void addAtTail(int val) {
-//         Node* temp = head;
-//         while (temp->next) temp = temp->next;
-//         temp->next = new Node(val);
-//         size++;
-//     }
-    
     void addAtIndex(int index, int val) {
-        if ( index>size) return;
-        Node* temp = head;
-        for (int i= 0; i<index; i++) temp = temp->next;
+        if (index<0 || index>size) return;
+        Node *temp = head;
+        for (int i = 0; i<index; i++) temp = temp->next;
         Node* temp1 = temp->next;
         temp->next = new Node(val);
         temp->next->next = temp1;
         size++;
+        return;
+        
     }
     
     void deleteAtIndex(int index) {
