@@ -18,9 +18,9 @@ public:
     }
     
     int get(int index) {
-        if (index>=size) return -1;
+        if (index<0 || index>=size) return -1;
         Node* temp = head->next;
-        for (int i = 0; i<index; i++) temp = temp->next;
+        for (int i =0; i<index; i++) temp = temp->next;
         return temp->val;
     }
     
