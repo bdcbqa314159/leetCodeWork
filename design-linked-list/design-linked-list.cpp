@@ -29,29 +29,28 @@ public:
         return temp->val;
     }
     
-        
+    
     void addAtHead(int val) {
         Node* temp = head->next;
         head->next = new Node(val);
         head->next->next = temp;
         size++;
-        return;
     }
- 
     
-    // void addAtHead(int val) {
-    //     Node* temp = head->next;
-    //     head->next = new Node(val);
-    //     head->next->next = temp;
-    //     size++;
-    // }
-    
-    void addAtTail(int val) {
+        void addAtTail(int val) {
         Node* temp = head;
         while (temp->next) temp = temp->next;
         temp->next = new Node(val);
         size++;
+        return;
     }
+    
+//     void addAtTail(int val) {
+//         Node* temp = head;
+//         while (temp->next) temp = temp->next;
+//         temp->next = new Node(val);
+//         size++;
+//     }
     
     void addAtIndex(int index, int val) {
         if ( index>size) return;
@@ -101,13 +100,13 @@ public:
 //         return;
 //     }
     
-//     void addAtTail(int val) {
-//         Node* temp = head;
-//         while (temp->next) temp = temp->next;
-//         temp->next = new Node(val);
-//         size++;
-//         return;
-//     }
+    // void addAtTail(int val) {
+    //     Node* temp = head;
+    //     while (temp->next) temp = temp->next;
+    //     temp->next = new Node(val);
+    //     size++;
+    //     return;
+    // }
     
 //     void addAtIndex(int index, int val) {
 //         if (index<0 || index>=size) return;
