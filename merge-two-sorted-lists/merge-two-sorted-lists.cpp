@@ -14,7 +14,7 @@ public:
         if (!list1) return list2;
         if (!list2) return list1;
         
-        ListNode *out;
+        ListNode* out;
         
         if (list1->val < list2->val){
             out = list1;
