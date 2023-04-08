@@ -20,9 +20,6 @@ public:
             
             prev = head;
             head = next;
-            
-        }
-        
-        return prev;
+        }return prev;
     }
 };
