@@ -27,13 +27,13 @@ public:
         }
         
         curr = head;
-        
         while (curr){
             Node *copy = oldToCopy[curr];
             copy->next = oldToCopy[curr->next];
             copy->random = oldToCopy[curr->random];
             curr = curr->next;
         }
+        
         return oldToCopy[head];
     }
 };
