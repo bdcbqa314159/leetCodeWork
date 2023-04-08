@@ -21,7 +21,7 @@ public:
                 if (temp->next) st.push(temp->next);
                 temp->next = temp->child;
                 temp->next->prev = temp;
-                temp->child = 0;
+                temp->child = 0;   
             }
             
             else if (!temp->next && !st.empty()){
