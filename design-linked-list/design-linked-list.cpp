@@ -1,100 +1,96 @@
-struct DoublyListNode {
+class Node {
+    public:
     int val;
-    DoublyListNode *next, *prev;
-    DoublyListNode(int x) : val(x), next(NULL), prev(NULL) {}
+    Node *next, *prev;
+    Node(int x) : val(x), next(NULL), prev(NULL) {}
 };
 
 
 
 class MyLinkedList {
-private:
-    DoublyListNode *head;
 public:
-    /** Initialize your data structure here. */
+    Node* head = nullptr;
+    
     MyLinkedList() {
-        head = NULL;
+        
     }
     
-    DoublyListNode* getNode(int index) {
-    DoublyListNode *cur = head;
-    for (int i = 0; i < index && cur; ++i) {
-        cur = cur->next;
+    Node* getNode(int index){
+        Node *curr = head;
+        for (int i = 0; i<index && curr; ++i)
+            curr = curr->next;
+        return curr;
     }
-    return cur;
-}
-/** Helper function to return the last node in the linked list. */
-DoublyListNode* getTail() {
-    DoublyListNode *cur = head;
-    while (cur && cur->next) {
-        cur = cur->next;
-    }
-    return cur;
-}
-/** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
-int get(int index) {
-    DoublyListNode *cur = getNode(index);
-    return cur == NULL ? -1 : cur->val;
-}
     
- void addAtHead(int val) {
-    DoublyListNode *cur = new DoublyListNode(val);
-    cur->next = head;
-    if (head) {
-        head->prev = cur;
+    Node* getTail(){
+        Node *curr = head;
+        while (curr && curr->next)
+            curr = curr->next;
+        return curr;
     }
-    head = cur;
-    return;
-}
-
-/** Append a node of value val to the last element of the linked list. */
-void addAtTail(int val) {
-    if (head == NULL) {
-        addAtHead(val);
+    
+    int get(int index) {
+        Node* curr = getNode(index);
+        return curr == nullptr? -1: curr->val;
+    }
+    
+    void addAtHead(int val) {
+        Node *curr = new Node(val);
+        curr->next = head;
+        
+        if (head){
+            head->prev = curr;
+        }
+        head = curr;
         return;
     }
-    DoublyListNode *prev = getTail();
-    DoublyListNode *cur = new DoublyListNode(val);
-    prev->next = cur;
-    cur->prev = prev;
-}
-
-/** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
-void addAtIndex(int index, int val) {
-    if (index == 0) {
-        addAtHead(val);
+    
+    void addAtTail(int val) {
+        if (!head){
+            addAtHead(val);
+            return;
+        }
+        
+        Node *prev = getTail();
+        Node *curr = new Node(val);
+        prev->next = curr;
+        curr->prev = prev;
         return;
     }
-    DoublyListNode *prev = getNode(index - 1);
-    if (prev == NULL) {
+    
+    void addAtIndex(int index, int val) {
+        if (index == 0){
+            addAtHead(val);
+            return;
+        }
+            
+        
+        Node *prev = getNode(index-1);
+        if (!prev) return;
+        
+        Node *curr = new Node(val);
+        Node *next = prev->next;
+        curr->prev = prev;
+        curr->next = next;
+        prev->next = curr;
+        
+        if (next) next->prev = curr;
+        
         return;
     }
-    DoublyListNode *cur = new DoublyListNode(val);
-    DoublyListNode *next = prev->next;
-    cur->prev = prev;
-    cur->next = next;
-    prev->next = cur;
-    if (next) {
-        next->prev = cur;
-    }
-}
+    
     void deleteAtIndex(int index) {
-    DoublyListNode *cur = getNode(index);
-    if (cur == NULL) {
-        return;
+        Node *curr = getNode(index);
+        if (!curr) return;
+        
+        Node *prev = curr->prev;
+        Node *next = curr->next;
+        
+        if (prev) prev->next = next;
+        else head = next;
+        
+        if (next) next->prev = prev;
     }
-    DoublyListNode *prev = cur->prev;
-    DoublyListNode *next = cur->next;
-    if (prev) {
-        prev->next = next;
-    } else {
-        // modify head when deleting the first node.
-        head = next;
-    }
-    if (next) {
-        next->prev = prev;
-    }
-}
-    
 };
 
 /**
