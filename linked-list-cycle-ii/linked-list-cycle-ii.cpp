@@ -21,13 +21,12 @@ public:
         
         if (!fast->next || !fast->next->next) return nullptr;
         
-        ListNode* node = head;
+        ListNode *node = head;
         while (node->next){
             if (node == slow) return slow;
             node = node->next;
             slow = slow->next;
         }
-        
         return nullptr;
     }
 };
