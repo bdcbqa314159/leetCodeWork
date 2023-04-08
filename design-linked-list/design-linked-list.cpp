@@ -1,44 +1,45 @@
 class Node{
+    
     public:
     int val;
     Node *prev, *next;
+    
     Node(int val):val(val), prev(nullptr), next(nullptr){}
 };
 
 class MyLinkedList {
 public:
     
-    Node *head = nullptr;
+    Node *head = 0;
     
     MyLinkedList() {
         
     }
     
-    Node* getNode(int index){
-        Node *temp = head;
-        for (int i = 0; i<index && temp; i++)
-            temp = temp->next;
-        return temp;
+    Node *getNode(int index){
+        Node *t = head;
+        for (int i = 0; i<index && t; i++)
+            t = t->next;
+        return t;
     }
     
-    Node* getTail(){
-        Node *temp = head;
-        while (temp && temp->next)
-            temp = temp->next;
-        return temp;
+    Node *getTail(){
+        Node *t = head;
+        while (t && t->next)
+            t = t->next;
+        return t;
     }
     
     int get(int index) {
-        Node* node = getNode(index);
-        return node == nullptr ? -1 : node->val;
+        Node *t = getNode(index);
+        return t == 0 ? -1: t->val;
     }
     
     void addAtHead(int val) {
-        Node *temp = new Node(val);
-        temp->next = head;
-        if (head) head->prev = temp;
-        
-        head = temp;
+        Node *t = new Node(val);
+        t->next = head;
+        if (head) head->prev = t;
+        head = t;
         return;
     }
     
@@ -49,9 +50,10 @@ public:
         }
         
         Node *prev = getTail();
-        Node *temp = new Node(val);
-        prev->next = temp;
-        temp->prev = prev;
+        Node *t = new Node(val);
+        
+        prev->next = t;
+        t->prev = prev;
         
         return;
     }
@@ -62,31 +64,33 @@ public:
             return;
         }
         
-        Node* prev = getNode(index-1);
+        Node *prev = getNode(index-1);
         if (!prev) return;
         
-        Node *temp = new Node(val);
+        Node *curr = new Node(val);
         Node *next = prev->next;
         
-        temp->prev = prev;
-        temp->next = next;
+        curr->prev = prev;
+        curr->next = next;
         
-        prev->next = temp;
-        if (next) next->prev = temp;
+        prev->next = curr;
+        if (next) next->prev = curr;
+        
         return;
     }
     
     void deleteAtIndex(int index) {
-        Node *temp = getNode(index);
-        if (!temp) return;
+        Node *curr = getNode(index);
+        if (!curr) return;
         
-        Node *prev = temp->prev;
-        Node *next = temp->next;
+        Node *prev = curr->prev;
+        Node *next = curr->next;
         
         if (prev) prev->next = next;
         else head = next;
         
         if (next) next->prev = prev;
+        
         return;
     }
 };
