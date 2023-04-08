@@ -11,10 +11,10 @@
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-        if(!list1) return list2;
-        if(!list2) return list1;
+        if (!list1) return list2;
+        if (!list2) return list1;
         
-        ListNode* out;
+        ListNode *out;
         
         if (list1->val < list2->val){
             out = list1;
@@ -23,9 +23,8 @@ public:
         
         else{
             out = list2;
-            out->next = mergeTwoLists(list1,list2->next);
+            out->next = mergeTwoLists(list1, list2->next);
         }
-        
         return out;
     }
 };
