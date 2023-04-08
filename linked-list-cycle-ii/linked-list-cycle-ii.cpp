@@ -15,18 +15,18 @@ public:
         while (fast->next && fast->next->next){
             slow = slow->next;
             fast = fast->next->next;
-            
             if (slow == fast) break;
         }
         
         if (!fast->next || !fast->next->next) return nullptr;
         
-        ListNode *node = head;
+        ListNode* node = head;
         while (node->next){
-            if (node == slow) return slow;
-            node = node->next;
+            if (slow == node) return slow;
             slow = slow->next;
+            node = node->next;
         }
+        
         return nullptr;
     }
 };
