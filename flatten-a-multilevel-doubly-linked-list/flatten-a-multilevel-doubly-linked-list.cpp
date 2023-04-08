@@ -14,6 +14,7 @@ public:
     Node* flatten(Node* head) {
         Node *temp = head;
         stack<Node*> st;
+        
         while (temp){
             
             if (temp->child){
@@ -23,14 +24,13 @@ public:
                 temp->child = 0;
             }
             
-            else if (temp->next == 0 && !st.empty()){
+            else if (!temp->next && !st.empty()){
                 temp->next = st.top();
                 st.pop();
                 temp->next->prev = temp;
             }
             
-            
-            temp=temp->next;
+            temp = temp->next;
         }
         return head;
     }
