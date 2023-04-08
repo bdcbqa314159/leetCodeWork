@@ -17,7 +17,6 @@ public:
             if (!b) b = headA;
             else b = b->next;
         }
-        
         return a;
     }
 };
