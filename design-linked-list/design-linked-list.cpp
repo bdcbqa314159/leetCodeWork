@@ -1,48 +1,44 @@
 class Node{
-    
     public:
     int val;
-    Node *next, *prev;
-    Node(int val): val(val), next(nullptr), prev(nullptr){}
+    Node *prev, *next;
+    Node(int val):val(val), prev(nullptr), next(nullptr){}
 };
-
 
 class MyLinkedList {
 public:
+    
     Node *head = nullptr;
     
     MyLinkedList() {
         
     }
     
-    Node *getNode(int index){
-        Node *curr = head;
-        for (int i = 0; i<index && curr; i++){
-            curr = curr->next;
-        }
-        return curr;
+    Node* getNode(int index){
+        Node *temp = head;
+        for (int i = 0; i<index && temp; i++)
+            temp = temp->next;
+        return temp;
     }
     
-    Node *getTail(){
-        Node *curr = head;
-        while (curr && curr->next){
-            curr = curr->next;
-        }
-        return curr;
+    Node* getTail(){
+        Node *temp = head;
+        while (temp && temp->next)
+            temp = temp->next;
+        return temp;
     }
     
     int get(int index) {
-        Node *node = getNode(index);
-        return node == nullptr ? -1:node->val;
+        Node* node = getNode(index);
+        return node == nullptr ? -1 : node->val;
     }
     
     void addAtHead(int val) {
-        Node *curr = new Node(val);
+        Node *temp = new Node(val);
+        temp->next = head;
+        if (head) head->prev = temp;
         
-        curr->next = head;
-        if (head) head->prev = curr;
-        
-        head = curr;
+        head = temp;
         return;
     }
     
@@ -53,9 +49,9 @@ public:
         }
         
         Node *prev = getTail();
-        Node *curr = new Node(val);
-        prev->next = curr;
-        curr->prev = prev;
+        Node *temp = new Node(val);
+        prev->next = temp;
+        temp->prev = prev;
         
         return;
     }
@@ -66,27 +62,26 @@ public:
             return;
         }
         
-        Node *prev = getNode(index-1);
+        Node* prev = getNode(index-1);
         if (!prev) return;
         
-        Node *curr = new Node(val);
+        Node *temp = new Node(val);
         Node *next = prev->next;
         
-        curr->prev = prev;
-        curr->next = next;
+        temp->prev = prev;
+        temp->next = next;
         
-        prev->next = curr;
-        
-        if (next) next->prev = curr;
+        prev->next = temp;
+        if (next) next->prev = temp;
         return;
     }
     
     void deleteAtIndex(int index) {
-        Node *curr = getNode(index);
-        if (!curr) return;
+        Node *temp = getNode(index);
+        if (!temp) return;
         
-        Node *prev = curr->prev;
-        Node *next = curr->next;
+        Node *prev = temp->prev;
+        Node *next = temp->next;
         
         if (prev) prev->next = next;
         else head = next;
