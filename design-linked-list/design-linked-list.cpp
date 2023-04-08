@@ -1,47 +1,45 @@
-class Node {
+class Node{
     public:
     int val;
-    Node *next, *prev;
-    Node(int x) : val(x), next(NULL), prev(NULL) {}
+    Node *prev, *next;
+    Node(int val):val(val), prev(nullptr), next(nullptr){}
 };
-
 
 
 class MyLinkedList {
 public:
+    
     Node* head = nullptr;
     
     MyLinkedList() {
         
     }
     
-    Node* getNode(int index){
-        Node *curr = head;
-        for (int i = 0; i<index && curr; ++i)
-            curr = curr->next;
-        return curr;
+    Node *getNode(int index){
+        Node *temp = head;
+        for (int i = 0; i<index && temp; ++i)
+            temp = temp->next;
+        return temp;
     }
     
-    Node* getTail(){
-        Node *curr = head;
-        while (curr && curr->next)
-            curr = curr->next;
-        return curr;
+    Node *getTail(){
+        Node *temp = head;
+        while (temp && temp->next)
+            temp = temp->next;
+        return temp;
     }
     
     int get(int index) {
-        Node* curr = getNode(index);
-        return curr == nullptr? -1: curr->val;
+        Node *temp = getNode(index);
+        return temp == nullptr? -1: temp->val;
     }
     
     void addAtHead(int val) {
-        Node *curr = new Node(val);
-        curr->next = head;
-        
-        if (head){
-            head->prev = curr;
-        }
-        head = curr;
+        Node *temp = new Node(val);
+        temp->next = head;
+        if (head)
+            head->prev = temp;
+        head = temp;
         return;
     }
     
@@ -55,6 +53,7 @@ public:
         Node *curr = new Node(val);
         prev->next = curr;
         curr->prev = prev;
+        
         return;
     }
     
@@ -63,7 +62,6 @@ public:
             addAtHead(val);
             return;
         }
-            
         
         Node *prev = getNode(index-1);
         if (!prev) return;
@@ -75,8 +73,8 @@ public:
         prev->next = curr;
         
         if (next) next->prev = curr;
-        
         return;
+        
     }
     
     void deleteAtIndex(int index) {
@@ -90,6 +88,7 @@ public:
         else head = next;
         
         if (next) next->prev = prev;
+        return;
     }
 };
 
