@@ -17,7 +17,6 @@ public:
         while (next){
             next = head->next;
             head->next = prev;
-            
             prev = head;
             head = next;
         }
