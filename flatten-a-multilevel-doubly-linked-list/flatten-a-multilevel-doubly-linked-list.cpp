@@ -14,26 +14,24 @@ public:
     Node* flatten(Node* head) {
         Node *temp = head;
         stack<Node*> st;
-        
-        while (head){
+        while (temp){
             
-            if (head->child){
-                if (head->next) st.push(head->next);
-                head->next = head->child;
-                head->next->prev = head;
-                head->child = 0;
-                
+            if (temp->child){
+                if (temp->next) st.push(temp->next);
+                temp->next = temp->child;
+                temp->next->prev = temp;
+                temp->child = 0;
             }
             
-            else if (head->next == 0 && !st.empty()){
-                head->next = st.top();
+            else if (temp->next == 0 && !st.empty()){
+                temp->next = st.top();
                 st.pop();
-                head->next->prev = head;
+                temp->next->prev = temp;
             }
             
-            head = head->next;
+            
+            temp=temp->next;
         }
-        
-        return temp;
+        return head;
     }
 };
