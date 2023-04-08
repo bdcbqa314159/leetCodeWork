@@ -17,12 +17,10 @@ public:
         if (current){
             if (!helper(current->next)) return false;
             if (current->val != frontPointer->val) return false;
-            
             frontPointer = frontPointer->next;
         }
         return true;
     }
-    
     
     bool isPalindrome(ListNode* head) {
         frontPointer = head;
