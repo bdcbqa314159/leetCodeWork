@@ -13,12 +13,13 @@ public:
     
     ListNode *front{};
     
-    bool helper(ListNode *curr){
-        if (curr){
-            if (!helper(curr->next)) return false;
-            if (front->val != curr->val) return false;
+    bool helper(ListNode *node){
+        if (node){
+            if (!helper(node->next)) return false;
+            if (node->val != front->val) return false;
             front = front->next;
         }
+        
         return true;
     }
     
