@@ -32,15 +32,12 @@ public:
         bool toInsert = false;
         
         do{
-            
             if (prev->val<=insertVal && insertVal<=curr->val)
                 toInsert = true;
-            
-            else if(prev->val > curr->val){
-                if (insertVal>=prev->val || insertVal<=curr->val)
+            else if (prev->val>curr->val){
+                if (prev->val<=insertVal || insertVal<=curr->val)
                     toInsert = true;
             }
-            
             if (toInsert){
                 prev->next = new Node(insertVal, curr);
                 return head;
@@ -49,8 +46,7 @@ public:
             prev = curr;
             curr = curr->next;
             
-            
-        }while(prev!=head);
+        }while (prev!=head);
         
         prev->next = new Node(insertVal, curr);
         return head;
