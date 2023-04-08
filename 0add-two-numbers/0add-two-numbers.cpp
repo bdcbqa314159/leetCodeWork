@@ -14,13 +14,13 @@ public:
         ListNode *ans = new ListNode(0), *temp = ans;
         
         int carry = 0;
-        
         while (l1 || l2 || carry){
             int v1 = 0, v2 = 0;
             if (l1){
                 v1 = l1->val;
                 l1 = l1->next;
             }
+            
             if (l2){
                 v2 = l2->val;
                 l2 = l2->next;
