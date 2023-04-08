@@ -11,21 +11,21 @@
 class Solution {
 public:
     
-    ListNode* frontPointer;
-    bool helper(ListNode* current){
+    ListNode *frontPointer;
+    
+    bool helper(ListNode *current){
         if (current){
-            
             if (!helper(current->next)) return false;
             if (current->val != frontPointer->val) return false;
-            frontPointer = frontPointer->next;
             
+            frontPointer = frontPointer->next;
         }
         return true;
     }
     
+    
     bool isPalindrome(ListNode* head) {
         frontPointer = head;
-        
         return helper(head);
     }
 };
