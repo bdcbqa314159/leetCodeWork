@@ -23,7 +23,7 @@ class Solution {
 public:
     Node* insert(Node* head, int insertVal) {
         if (!head){
-            Node *newNode = new Node(insertVal, 0);
+            Node *newNode = new Node(insertVal,0);
             newNode->next = newNode;
             return newNode;
         }
@@ -32,12 +32,14 @@ public:
         bool toInsert = false;
         
         do{
+            
             if (prev->val<=insertVal && insertVal<=curr->val)
                 toInsert = true;
-            else if (prev->val>curr->val){
+            else if(prev->val > curr->val){
                 if (prev->val<=insertVal || insertVal<=curr->val)
                     toInsert = true;
             }
+            
             if (toInsert){
                 prev->next = new Node(insertVal, curr);
                 return head;
@@ -46,9 +48,11 @@ public:
             prev = curr;
             curr = curr->next;
             
+            
         }while (prev!=head);
         
         prev->next = new Node(insertVal, curr);
         return head;
+        
     }
 };
