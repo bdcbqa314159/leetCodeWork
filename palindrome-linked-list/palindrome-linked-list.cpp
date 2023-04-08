@@ -13,10 +13,10 @@ public:
     
     ListNode *frontPointer;
     
-    bool helper(ListNode *current){
-        if (current){
-            if (!helper(current->next)) return false;
-            if (current->val != frontPointer->val) return false;
+    bool helper(ListNode *curr){
+        if (curr){
+            if (!helper(curr->next)) return false;
+            if (curr->val != frontPointer->val) return false;
             frontPointer = frontPointer->next;
         }
         return true;
