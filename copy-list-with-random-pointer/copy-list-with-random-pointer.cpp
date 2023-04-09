@@ -21,7 +21,6 @@ public:
         Node *curr = head;
         
         while (curr){
-            
             Node *copy = new Node(curr->val);
             umap[curr] = copy;
             curr = curr->next;
@@ -30,14 +29,12 @@ public:
         curr = head;
         
         while (curr){
-            
             Node *copy = umap[curr];
             copy->next = umap[curr->next];
             copy->random = umap[curr->random];
             
             curr = curr->next;
         }
-        
         return umap[head];
     }
 };
