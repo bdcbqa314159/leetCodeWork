@@ -12,9 +12,10 @@ class Solution {
 public:
     ListNode* rotateRight(ListNode* head, int k) {
         if (!head || !head->next || !k) return head;
+        
         int len = 1;
         
-        ListNode *tail = head, *head2 = head;
+        ListNode *tail = head, *ans = head;
         
         while (tail && tail->next){
             len++;
@@ -22,20 +23,20 @@ public:
         }
         
         k %= len;
-        
         if (!k) return head;
-        
-        int n = len - k;
+        int n = len -k;
         
         while (--n){
-            head2 = head2->next;
+            ans = ans->next;
         }
         
-        ListNode *temp = head2->next;
-        head2->next = 0;
-        head2 = temp;
+        ListNode *temp = ans->next;
+        ans->next = 0;
+        ans = temp;
         
         tail->next = head;
-        return head2;
+        
+        return ans;
+        
     }
 };
