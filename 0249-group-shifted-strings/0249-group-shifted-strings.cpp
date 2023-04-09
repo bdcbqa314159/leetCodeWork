@@ -1,38 +1,26 @@
 class Solution {
 public:
-    char shiftLetter(char letter, int shift) {
-        return (letter - shift + 26) % 26 + 'a';
-    }
-    
-    // Create a hash value
-    string getHash(string& s) {
-        // Calculate the number of shifts to make the first character to be 'a'
-        int shift = s[0];
-        string hashKey;
-        
-        for (char letter : s) {
-            hashKey += shiftLetter(letter, shift);
-        }
-        
-        return hashKey;
-    }
-    
     vector<vector<string>> groupStrings(vector<string>& strings) {
-        unordered_map<string, vector<string>> mapHashToList;
-        
-        // Create a hash_value (hashKey) for each string and append the string
-        // to the list of hash values i.e. mapHashToList["abc"] = ["abc", "bcd"]
-        for (string str : strings) {
-            string hashKey = getHash(str);
-            mapHashToList[hashKey].push_back(str);
+        unordered_map<string, vector<string> > mp;
+        for (string  s : strings)
+            mp[shift(s)].push_back(s);
+        vector<vector<string> > groups;
+        for (auto m : mp) {
+            vector<string> group = m.second;
+            sort(group.begin(), group.end());
+            groups.push_back(group);
         }
-        
-        // Iterate over the map, and add the values to groups
-        vector<vector<string>> groups;
-        for (auto it : mapHashToList) {
-            groups.push_back(it.second);
-        }
-        
         return groups;
+    }
+private:
+    string shift(string& s) {
+        string t;
+        int n = s.length();
+        for (int i = 1; i < n; i++) {
+            int diff = s[i] - s[i - 1];
+            if (diff < 0) diff += 26;
+            t += 'a' + diff + ',';
+        }
+        return t;
     }
 };
