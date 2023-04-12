@@ -14,21 +14,21 @@ public:
     
     void add(int key) {
         int i = hash(key);
-        auto it = find(buckets[i].begin(), buckets[i].end(),key);
+        auto it = find(buckets[i].begin(), buckets[i].end(), key);
         if (it == buckets[i].end())
             buckets[i].push_back(key);
     }
     
     void remove(int key) {
         int i = hash(key);
-        auto it = find(buckets[i].begin(), buckets[i].end(),key);
+        auto it = find(buckets[i].begin(), buckets[i].end(), key);
         if (it != buckets[i].end())
             buckets[i].erase(it);
     }
     
     bool contains(int key) {
         int i = hash(key);
-        auto it = find(buckets[i].begin(), buckets[i].end(),key);
+        auto it = find(buckets[i].begin(), buckets[i].end(), key);
         return it != buckets[i].end();
     }
 };
