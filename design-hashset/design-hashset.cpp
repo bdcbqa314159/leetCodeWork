@@ -1,37 +1,36 @@
 class MyHashSet {
 public:
     
-    int numBuckets;
-    vector<vector<int>> buckets;
+    int numBuckets = 15000;
+    vector<vector<int>> buckets = vector<vector<int>>(numBuckets, vector<int>{});
     
-    int hash_function(int key){
+    int hash(int key){
         return key%numBuckets;
     }
     
+    
     MyHashSet() {
-        numBuckets = 15000;
-        buckets = vector<vector<int>>(numBuckets, vector<int>{});
+        
     }
     
     void add(int key) {
-        int i = hash_function(key);
+        int i = hash(key);
         auto it = find(buckets[i].begin(), buckets[i].end(), key);
         if (it == buckets[i].end())
             buckets[i].push_back(key);
     }
     
     void remove(int key) {
-        int i = hash_function(key);
+        int i = hash(key);
         auto it = find(buckets[i].begin(), buckets[i].end(), key);
         if (it != buckets[i].end())
             buckets[i].erase(it);
     }
     
     bool contains(int key) {
-        int i = hash_function(key);
+        int i = hash(key);
         auto it = find(buckets[i].begin(), buckets[i].end(), key);
-        
-        return !(it == buckets[i].end());
+        return it != buckets[i].end();
     }
 };
 
