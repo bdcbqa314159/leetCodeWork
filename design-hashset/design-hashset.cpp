@@ -8,7 +8,6 @@ public:
         return key%numBuckets;
     }
     
-    
     MyHashSet() {
         
     }
