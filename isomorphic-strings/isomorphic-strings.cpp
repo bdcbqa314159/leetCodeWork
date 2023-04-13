@@ -3,7 +3,7 @@ public:
     bool isIsomorphic(string s, string t) {
         int n = s.size();
         map<char,char> m;
-        vector<bool> visited(256, false);
+        vector<bool> visited(256,false);
         
         for (int i = 0; i<n; i++){
             char c1 = s[i], c2 = t[i];
