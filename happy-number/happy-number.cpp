@@ -10,14 +10,13 @@ public:
         return res;
     }
     
-    
     bool isHappy(int n) {
         vector<int> u = {1,2,4,16,20,37,42,58,89,145};
         int s = 0;
-        while(find(u.begin(), u.end(), s) == u.end()){
+        while (find(u.begin(), u.end(), s) == u.end()){
             s = sumSquare(n);
             n = s;
         }
-        return s == 1;
+        return n==1;
     }
 };
