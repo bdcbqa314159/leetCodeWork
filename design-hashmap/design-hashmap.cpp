@@ -13,6 +13,7 @@ public:
     }
     
     void put(int key, int value) {
+        
         int i = hash(key);
         for (auto it = mp[i].begin(); it != mp[i].end(); it++){
             if (it->first == key){
@@ -20,7 +21,8 @@ public:
                 return;
             }
         }
-        mp[i].push_back({key, value});
+        
+        mp[i].push_back({key,value});
     }
     
     int get(int key) {
@@ -37,11 +39,10 @@ public:
         int i = hash(key);
         for (auto it = mp[i].begin(); it != mp[i].end(); it++){
             if (it->first == key){
-               mp[i].erase(it);
+                mp[i].erase(it);
                 return;
             }
         }
-        return;
     }
 };
 
