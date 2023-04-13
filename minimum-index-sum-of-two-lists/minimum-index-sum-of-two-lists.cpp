@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<string> findRestaurant(vector<string>& list1, vector<string>& list2) {
         int n = list1.size(), m = list2.size();
-        map<string, int> mapping;
+        map<string,int> mapping;
         vector<string> result;
         int minSum = INT_MAX;
         
@@ -14,13 +14,12 @@ public:
             
             if (it == mapping.end()) continue;
             
-            int index = it->second+j;
+            int idx = it->second+j;
             
-            if (index == minSum) result.push_back(list2[j]);
-            
-            if (index<minSum){
+            if (idx == minSum) result.push_back(list2[j]);
+            if (idx<minSum){
+                minSum = idx;
                 result.clear();
-                minSum = index;
                 result.push_back(list2[j]);
             }
         }
