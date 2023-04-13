@@ -8,37 +8,39 @@ public:
         return key%size;
     }
     
+    
     MyHashMap() {
         
     }
     
     void put(int key, int value) {
         int i = hash(key);
-        for (auto it = mp[i].begin(); it!=mp[i].end(); it++){
+        for (auto it = mp[i].begin(); it != mp[i].end(); it++){
             if (it->first == key){
                 it->second = value;
                 return;
-            } 
+            }
         }
         mp[i].push_back({key,value});
     }
     
     int get(int key) {
         int i = hash(key);
-        for (auto it = mp[i].begin(); it!=mp[i].end(); it++){
-            if (it->first == key)
+        for (auto it = mp[i].begin(); it != mp[i].end(); it++){
+            if (it->first == key){
                 return it->second;
+            }
         }
         return -1;
     }
     
     void remove(int key) {
         int i = hash(key);
-        for (auto it = mp[i].begin(); it!=mp[i].end(); it++){
+        for (auto it = mp[i].begin(); it != mp[i].end(); it++){
             if (it->first == key){
                 mp[i].erase(it);
                 return;
-            }  
+            }
         }
         return;
     }
