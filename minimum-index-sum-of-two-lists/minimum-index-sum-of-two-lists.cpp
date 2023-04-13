@@ -1,30 +1,29 @@
 class Solution {
 public:
     vector<string> findRestaurant(vector<string>& list1, vector<string>& list2) {
-        map<string, int> myMap;
-        for (int i = 0; i<list1.size(); i++)
-            myMap[list1[i]] = i;
+        int n = list1.size(), m = list2.size();
+        map<string, int> theMap;
+        for (int i = 0; i<n; i++)
+            theMap[list1[i]] = i;
         
         vector<string> result;
         int minSum = INT_MAX;
         
-        for (int i = 0; i<list2.size(); i++){
-            auto it = myMap.find(list2[i]);
+        for (int j = 0; j<m; j++){
+            auto it = theMap.find(list2[j]);
+            if (it == theMap.end()) continue;
             
-            if (it == myMap.end()) continue;
+            int index = it->second +j;
             
-            int idx = it->second + i;
-            
-            if (idx == minSum)
-                result.push_back(list2[i]);
-            
-            if (idx < minSum){
-                minSum = idx;
+            if (index == minSum)
+                result.push_back(list2[j]);
+            if (index<minSum){
+                minSum = index;
                 result.clear();
-                result.push_back(list2[i]);
+                result.push_back(list2[j]);
             }
+            
         }
-        
         return result;
     }
 };
