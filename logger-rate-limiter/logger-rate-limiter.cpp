@@ -1,16 +1,16 @@
 class Logger {
 public:
     
-    map<string,int> theMap;
+    map<string, int> map_;
     
     Logger() {
         
     }
     
     bool shouldPrintMessage(int timestamp, string message) {
-        if (theMap.count(message)>0 && theMap[message]+10 > timestamp)
+        if (map_.count(message)>0 && map_[message]+10>timestamp)
             return false;
-        theMap[message] = timestamp;
+        map_[message] = timestamp;
         return true;
     }
 };
