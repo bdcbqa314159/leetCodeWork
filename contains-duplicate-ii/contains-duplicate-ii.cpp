@@ -2,12 +2,13 @@ class Solution {
 public:
     bool containsNearbyDuplicate(vector<int>& nums, int k) {
         int n = nums.size();
-        unordered_map<int,int> umap;
+        unordered_map<int,int> m;
+        
         for (int i = 0; i<n; i++){
             int x = nums[i];
-            if (umap.find(x)!=umap.end() && i-umap[x]<=k)
+            if (m.find(x)!=m.end() && i-m[x] <=k)
                 return true;
-            umap[x] = i;
+            m[x] = i;
         }
         return false;
     }
