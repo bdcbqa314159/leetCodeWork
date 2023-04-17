@@ -1,7 +1,7 @@
 class Logger {
 public:
     
-    map<string, int> map_;
+    map<string,int> map_;
     
     Logger() {
         
