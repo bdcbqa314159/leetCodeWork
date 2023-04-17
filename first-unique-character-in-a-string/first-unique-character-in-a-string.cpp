@@ -2,7 +2,7 @@ class Solution {
 public:
     int firstUniqChar(string s) {
         int n = s.size();
-        vector<int> ans(26);
+        vector<int>ans(26);
         
         for (auto x: s)
             ans[x-'a']++;
