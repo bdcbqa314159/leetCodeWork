@@ -6,12 +6,8 @@ public:
         
         unordered_map<int,int> umap;
         
-        for (int i = 0; i<n; i++){
-            if (umap.find(nums1[i]) != umap.end())
-                umap[nums1[i]]++;
-            else
-                umap[nums1[i]]++;
-        }
+        for (int i = 0; i<n; i++)
+            umap[nums1[i]]++;
         
         vector<int> ans;
         
