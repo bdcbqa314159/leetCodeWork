@@ -7,8 +7,7 @@ public:
         for (int i = 0; i<r; i++){
             for (int j = 0; j<c; j++){
                 char x = board[i][j];
-                
-                if (x != '.' && (rows[i][x]>0 || cols[j][x] || box[i/3*3+j/3][x]>0)) return false;
+                if (x != '.' && (rows[i][x]>0 || cols[j][x]>0 || box[i/3*3+j/3][x]>0)) return false;
                 rows[i][x]++;
                 cols[j][x]++;
                 box[i/3*3+j/3][x]++;
