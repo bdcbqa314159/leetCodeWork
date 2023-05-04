@@ -5,10 +5,9 @@ public:
         
         string t;
         int n = s.size();
-        for (int i = 1; i<n; i++){
+        for(int i = 1; i<n; i++){
             int diff = s[i]-s[i-1];
             if (diff<0) diff+=26;
-            
             t+='a'+diff+',';
         }
         
