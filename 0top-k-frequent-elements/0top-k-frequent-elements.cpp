@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    struct myComp{
+    struct comp{
         inline bool operator()(const pair<int,int>& l, const pair<int,int>& r){
             return l.second>r.second;
         }
@@ -12,11 +12,10 @@ public:
         vector<pair<int,int>> v;
         
         for (int x: nums) m[x]++;
-        
         for (auto x: m)
-            v.push_back(make_pair(x.first,x.second));
+            v.push_back(make_pair(x.first, x.second));
         
-        sort(v.begin(), v.end(), myComp());
+        sort(v.begin(), v.end(), comp());
         
         vector<int>result;
         
