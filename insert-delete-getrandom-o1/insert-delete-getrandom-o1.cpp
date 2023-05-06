@@ -2,7 +2,7 @@ class RandomizedSet {
 public:
     
     vector<int> v;
-    unordered_map<int,int> mp;
+    unordered_map<int, int> mp;
     
     RandomizedSet() {
         
@@ -14,7 +14,6 @@ public:
     
     bool insert(int val) {
         if (search(val)) return false;
-        
         v.push_back(val);
         mp[val] = v.size()-1;
         return true;
@@ -26,8 +25,10 @@ public:
         auto it = mp.find(val);
         v[it->second] = v.back();
         v.pop_back();
+        
         mp[v[it->second]] = it->second;
         mp.erase(val);
+        
         return true;
     }
     
