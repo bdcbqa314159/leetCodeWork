@@ -6,11 +6,8 @@ public:
     ValidWordAbbr(vector<string>& dictionary) {
         for (string d: dictionary){
             int n = d.size();
-            
             string abbr = d[0]+to_string(n)+d[n-1];
-            
             mp[abbr].insert(d);
-            
         }
         return;
     }
