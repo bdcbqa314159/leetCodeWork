@@ -9,22 +9,23 @@ public:
         int l3 = nums3.size();
         int l4 = nums4.size();
         
-        for (const auto &x: nums1){
-            for (const auto &y: nums2){
+        for (int x: nums1){
+            for (int y : nums2){
                 if (umap.find(x+y) == umap.end())
-                    umap[x+y] = 1;
+                    umap[x+y]=1;
                 else
                     umap[x+y]++;
             }
         }
         
-        for (const auto &x: nums3){
-            for (const auto &y: nums4){
+        for (int x: nums3){
+            for (int y: nums4){
                 int target = -(x+y);
-                if (umap.find(target) != umap.end())
+                if (umap.find(target)!=umap.end())
                     ans+=umap[target];
             }
         }
+        
         return ans;
         
     }
