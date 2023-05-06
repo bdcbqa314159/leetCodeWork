@@ -16,13 +16,11 @@ public:
         if (search(val)) return false;
         v.push_back(val);
         mp[val] = v.size()-1;
-        
         return true;
     }
     
     bool remove(int val) {
         if (!search(val)) return false;
-        
         auto it = mp.find(val);
         
         v[it->second] = v.back();
