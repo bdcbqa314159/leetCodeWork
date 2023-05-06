@@ -1,7 +1,7 @@
 class RandomizedSet {
 public:
     
-    vector<int>v;
+    vector<int> v;
     unordered_map<int,int> mp;
     
     RandomizedSet() {
