@@ -14,9 +14,9 @@ public:
     bool find(int value) {
         for (unsigned int i: nums){
             unsigned int diff = value-i;
-            int count = i == diff ? 1:0;
             
-            if (nums.count(value-i) > count)
+            int count = i == diff ? 1:0;
+            if (nums.count(value-i)>count)
                 return true;
         }
         return false;
