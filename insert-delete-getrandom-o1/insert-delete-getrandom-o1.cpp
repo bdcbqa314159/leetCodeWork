@@ -21,8 +21,8 @@ public:
     
     bool remove(int val) {
         if (!search(val)) return false;
-        auto it = mp.find(val);
         
+        auto it = mp.find(val);
         v[it->second] = v.back();
         v.pop_back();
         mp[v[it->second]] = it->second;
