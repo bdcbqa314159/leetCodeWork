@@ -1,12 +1,12 @@
 class Solution {
 public:
     int numJewelsInStones(string jewels, string stones) {
-        unordered_map<char,int> umap;
-        for (auto x: jewels)
-            umap[x]=0;
-        for (auto x: stones){
-            if (umap.find(x)!=umap.end())
-                umap[x]++;
+        unordered_map<char, int> umap;
+        for (auto jewel: jewels)
+            umap[jewel] = 0;
+        for (auto stone: stones){
+            if (umap.find(stone)!=umap.end())
+                umap[stone]++;
         }
         
         int sum = 0;
