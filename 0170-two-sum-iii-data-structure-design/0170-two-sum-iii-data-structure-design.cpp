@@ -8,20 +8,17 @@ public:
     }
     
     void add(int number) {
-        nums.insert(number);    
+        nums.insert(number);
     }
     
     bool find(int value) {
-        
         for (unsigned int i: nums){
             unsigned int diff = value-i;
-            int count = i == diff ? 1:0;
-            if (nums.count(diff)>count)
-                return true;
+            
+            int count = i == diff? 1:0;
+            if (nums.count(diff)>count) return true;
         }
-        
         return false;
-        
     }
 };
 
