@@ -8,6 +8,7 @@ public:
             sort(key.begin(), key.end());
             umap[key].push_back(x);
         }
+        
         auto it = umap.begin();
         for (it; it!=umap.end(); it++){
             result.push_back(it->second);
