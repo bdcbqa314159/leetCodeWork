@@ -1,8 +1,7 @@
 class TwoSum {
 public:
     
-    unordered_multiset<int> nums;
-    
+    unordered_multiset<int> nums;    
     TwoSum() {
         
     }
@@ -16,9 +15,9 @@ public:
             unsigned int diff = value-i;
             
             int count = i == diff ? 1:0;
+            
             if (nums.count(diff)>count)
                 return true;
-            
         }
         return false;
     }
