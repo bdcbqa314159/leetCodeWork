@@ -17,8 +17,7 @@ public:
             s = helper(n);
             n = s;
         }
-        
-        return 1==s;
+        return 1 == s;
     }
 };
 
