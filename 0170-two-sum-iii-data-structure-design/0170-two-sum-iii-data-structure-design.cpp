@@ -1,16 +1,23 @@
 class TwoSum {
-    unordered_multiset<int> nums;
 public:
+    
+    unordered_multiset<int> nums;
+    
+    TwoSum() {
+        
+    }
+    
     void add(int number) {
         nums.insert(number);
     }
+    
     bool find(int value) {
-        for (unsigned int i : nums) {
-            unsigned int t = value - i;
-            int count = i == t ? 1 : 0;
-            if (nums.count(value - i) > count) {
+        for (unsigned int i: nums){
+            unsigned int diff = value-i;
+            
+            int count = i == diff?1:0;
+            if (nums.count(diff)>count)
                 return true;
-            }
         }
         return false;
     }
