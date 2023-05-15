@@ -8,6 +8,7 @@ public:
             if (m.find(x)!=m.end() && i-m[x]<=k)
                 return true;
             m[x] = i;
-        }return false;
+        }
+        return false;
     }
 };
