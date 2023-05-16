@@ -11,13 +11,15 @@ public:
         map<int,int> m;
         vector<pair<int,int>> v;
         
-        for (int x: nums) m[x]++;
-        for (auto x: m)
+        for(int x:nums) m[x]++;
+        for (auto x:m)
             v.push_back(make_pair(x.first,x.second));
         sort(v.begin(), v.end(), comp());
-        vector<int>result;
-        for (int i = 0; i<k; i++)
+        vector<int> result;
+        
+        for (int i = 0;i<k; i++)
             result.push_back(v[i].first);
         return result;
+                        
     }
 };
