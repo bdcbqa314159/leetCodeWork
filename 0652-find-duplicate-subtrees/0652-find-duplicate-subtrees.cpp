@@ -11,26 +11,26 @@
  */
 class Solution {
 public:
-    vector<TreeNode*> findDuplicateSubtrees(TreeNode* root) {
-        vector<TreeNode*> result;
-        map<size_t, vector<TreeNode*>> mymap;
-        merkle(root, mymap);
-        for (const auto& ele : mymap) {
-            if (ele.second.size() > 1) {
-                result.push_back(ele.second[0]);
-            }
-        }
-        return result;
+    
+    string helper(TreeNode* node, map<int,vector<TreeNode*>>&m){
+        if (!node) return "#";
+        string left = helper(node->left, m);
+        string right = helper(node->right, m);
+        
+        int curr = hash<string>{}(left+ to_string(node->val)+right);
+        m[curr].push_back(node);
+        
+        return to_string(curr);
     }
     
-    string merkle(TreeNode* root, map<size_t, vector<TreeNode*>>& mymap) {
-        if (root == nullptr) {
-            return "#";
+    vector<TreeNode*> findDuplicateSubtrees(TreeNode* root) {
+        vector<TreeNode*> result;
+        map<int, vector<TreeNode*>> m;
+        helper(root, m);
+        for (auto x: m){
+            if (x.second.size()>1)
+                result.push_back(x.second[0]);
         }
-        string left = merkle(root->left, mymap);
-        string right = merkle(root->right, mymap);
-        size_t current = hash<string>{}(left + to_string(root->val) + right);
-        mymap[current].push_back(root);
-        return to_string(current);
+        return result;
     }
 };
