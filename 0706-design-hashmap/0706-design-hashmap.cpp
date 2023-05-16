@@ -34,8 +34,8 @@ public:
     }
     
     void remove(int key) {
-        int i =hash(key);
-        for (auto it = mp[i].begin();it!= mp[i].end(); it++){
+        int i = hash(key);
+        for (auto it = mp[i].begin(); it!=mp[i].end(); it++){
             if (it->first == key){
                 mp[i].erase(it);
                 return;
