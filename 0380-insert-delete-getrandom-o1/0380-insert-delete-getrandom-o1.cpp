@@ -66,9 +66,7 @@ public:
 //         return true;
 //     }
     
-//     int getRandom() {
-//         return v[rand()%v.size()];
-//     }
+
 // };
 
 /**
