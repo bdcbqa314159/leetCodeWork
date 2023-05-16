@@ -17,9 +17,9 @@ public:
         string left = helper(node->left, m);
         string right = helper(node->right, m);
         
-        int curr = hash<string>{}(left+to_string(node->val)+right);
-        m[curr].push_back(node);
-        return to_string(curr);
+        int current = hash<string>{}(left+to_string(node->val)+right);
+        m[current].push_back(node);
+        return to_string(current);
     }
     
     vector<TreeNode*> findDuplicateSubtrees(TreeNode* root) {
