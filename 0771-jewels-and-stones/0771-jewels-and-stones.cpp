@@ -1,7 +1,7 @@
 class Solution {
 public:
     int numJewelsInStones(string jewels, string stones) {
-        unordered_map<char,int> umap;
+        unordered_map<char, int> umap;
         for (auto x: jewels)
             umap[x]=0;
         for (auto x: stones){
