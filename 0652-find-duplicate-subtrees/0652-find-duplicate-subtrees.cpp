@@ -12,14 +12,13 @@
 class Solution {
 public:
     
-    string helper(TreeNode* node, map<int,vector<TreeNode*>>&m){
+    string helper(TreeNode* node, map<int, vector<TreeNode*>>&m){
         if (!node) return "#";
         string left = helper(node->left, m);
         string right = helper(node->right, m);
         
-        int curr = hash<string>{}(left+ to_string(node->val)+right);
+        int curr = hash<string>{}(left+to_string(node->val)+right);
         m[curr].push_back(node);
-        
         return to_string(curr);
     }
     
