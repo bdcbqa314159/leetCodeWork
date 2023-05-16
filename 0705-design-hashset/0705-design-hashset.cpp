@@ -8,36 +8,34 @@ public:
         return key%numBuckets;
     }
     
-    vector<int>::iterator helper(int key){
-        int i = hash(key);
-        return find(buckets[i].begin(), buckets[i].end(), key);
+    vector<int>::iterator helper(int key, int& x){
+        x = hash(key);
+        return find(buckets[x].begin(), buckets[x].end(), key);
     }
-    
     
     MyHashSet() {
         
     }
     
     void add(int key) {
-        int i = hash(key);
-        auto it = helper(key);
-        
-        if (it == buckets[i].end())
-            buckets[i].push_back(key);
+        int x{};
+        auto it = helper(key,x);
+        if (it == buckets[x].end())
+            buckets[x].push_back(key);
     }
     
     void remove(int key) {
-        int i = hash(key);
-        auto it = helper(key);
-        
-        if (it!=buckets[i].end())
-            buckets[i].erase(it);
+        int x{};
+        auto it = helper(key,x);
+        if (it!=buckets[x].end())
+            buckets[x].erase(it);
     }
     
     bool contains(int key) {
-        int i = hash(key);
-        auto it = helper(key);
-        return it!=buckets[i].end();
+        int x{};
+        auto it = helper(key,x);
+        return it!=buckets[x].end();
+        
     }
 };
 
