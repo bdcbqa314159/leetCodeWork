@@ -2,15 +2,13 @@ class Solution {
 public:
     
     struct comp{
-        
         inline bool operator()(const pair<int,int>&l, const pair<int,int>&r){
             return l.second>r.second;
         }
     };
     
-    
     vector<int> topKFrequent(vector<int>& nums, int k) {
-        map<int,int>m;
+        map<int,int> m;
         vector<pair<int,int>> v;
         
         for (int x: nums) m[x]++;
