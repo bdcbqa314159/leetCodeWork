@@ -1,6 +1,5 @@
 class ValidWordAbbr {
 public:
-    
     unordered_map<string, unordered_set<string>> mp;
     
     ValidWordAbbr(vector<string>& dictionary) {
