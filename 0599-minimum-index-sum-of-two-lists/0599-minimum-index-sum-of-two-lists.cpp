@@ -5,7 +5,6 @@ public:
         vector<string> result;
         
         int min_index = INT_MAX;
-        
         map<string,int> m;
         
         for (int i = 0; i<n; i++)
@@ -16,10 +15,11 @@ public:
             if (it == m.end()) continue;
             
             int index = it->second+j;
+            
             if (index == min_index)
                 result.push_back(list2[j]);
             if (index<min_index){
-                min_index = index;
+                min_index=index;
                 result.clear();
                 result.push_back(list2[j]);
             }
