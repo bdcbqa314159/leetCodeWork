@@ -12,14 +12,15 @@
 class Solution {
 public:
     
-    string helper(TreeNode* node, map<int, vector<TreeNode*>>&m){
+    string helper(TreeNode* node, map<int,vector<TreeNode*>>& m){
         if (!node) return "#";
         string left = helper(node->left, m);
         string right = helper(node->right, m);
         
-        int current = hash<string>{}(left+to_string(node->val)+right);
-        m[current].push_back(node);
-        return to_string(current);
+        int curr = hash<string>{}(left+to_string(node->val)+right);
+        m[curr].push_back(node);
+        return to_string(curr);
+        
     }
     
     vector<TreeNode*> findDuplicateSubtrees(TreeNode* root) {
@@ -29,7 +30,6 @@ public:
         for (auto x: m){
             if (x.second.size()>1)
                 result.push_back(x.second[0]);
-        }
-        return result;
+        }return result;
     }
 };
