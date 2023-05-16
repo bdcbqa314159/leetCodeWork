@@ -15,7 +15,7 @@ public:
     bool isUnique(string word) {
         int n = word.size();
         string abbr = word[0]+to_string(n)+word[n-1];
-        return mp[abbr].count(word) == mp[abbr].size();
+        return mp[abbr].count(word)==mp[abbr].size();
     }
 };
 
