@@ -6,12 +6,11 @@ public:
         unordered_map<int,int> umap;
         vector<int> ans;
         
-        for (auto x: nums1)
-            umap[x]++;
+        for (auto x: nums1) umap[x]++;
         for (auto x: nums2){
             if (umap[x]>0){
-                umap[x]--;
                 ans.push_back(x);
+                umap[x]--;
             }
         }
         return ans;
