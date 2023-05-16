@@ -8,7 +8,7 @@ public:
         return key%numBuckets;
     }
     
-    vector<int>::iterator helper(int key, int& x){
+    vector<int>::iterator helper(int key, int &x){
         x = hash(key);
         return find(buckets[x].begin(), buckets[x].end(), key);
     }
@@ -19,23 +19,22 @@ public:
     
     void add(int key) {
         int x{};
-        auto it = helper(key,x);
+        auto it = helper(key, x);
         if (it == buckets[x].end())
             buckets[x].push_back(key);
     }
     
     void remove(int key) {
         int x{};
-        auto it = helper(key,x);
-        if (it!=buckets[x].end())
+        auto it = helper(key, x);
+        if (it != buckets[x].end())
             buckets[x].erase(it);
     }
     
     bool contains(int key) {
         int x{};
-        auto it = helper(key,x);
+        auto it = helper(key, x);
         return it!=buckets[x].end();
-        
     }
 };
 
