@@ -12,17 +12,6 @@ public:
         
     }
     
-    // void put(int key, int value) {
-    //     int i = hash(key);
-    //     for (auto it = mp[i].begin(); it != mp[i].end(); it++){
-    //         if (it->first == key){
-    //             it->second = value;
-    //             return;
-    //         }
-    //     }
-    //     mp[i].push_back({key, value});
-    // }
-    
     void put(int key, int value) {
         int i = hash(key);
         for (auto &x: mp[i]){
@@ -37,9 +26,8 @@ public:
     int get(int key) {
         int i = hash(key);
         for (auto x: mp[i]){
-            if (x.first == key){
+            if (x.first == key)
                 return x.second;
-            }
         }
         return -1;
     }
