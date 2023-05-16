@@ -13,11 +13,11 @@ public:
         
         for (int x: nums) m[x]++;
         for (auto x: m)
-            v.push_back(make_pair(x.first,x.second));
+            v.push_back(make_pair(x.first, x.second));
         sort(v.begin(), v.end(), comp());
-        vector<int> result;
-        for (int i = 0; i<k; i++)
-            result.push_back(v[i].first);
+        vector<int> result(k);
+        for (int i = 0;i<k; i++)
+            result[i] = v[i].first;
         return result;
     }
 };
