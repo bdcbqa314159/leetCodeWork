@@ -10,4 +10,3 @@ class Solution:
                 total+=cur
             prev = cur
         return total
-        
