@@ -3,7 +3,7 @@ class Solution:
         n = len(nums)
         umap = {}
         for i in range(n):
-            diff = target-nums[i]
+            diff = target - nums[i]
             if diff not in umap:
                 umap[nums[i]] = i
             else: return [i, umap[diff]]
