@@ -25,6 +25,7 @@ public:
     Node* helper(Node* node, unordered_map<int, Node*>& visited){
         Node* newNode = new Node(node->val);
         visited.insert({newNode->val, newNode});
+        
         for (Node* n: node->neighbors){
             auto it = visited.find(n->val);
             if (it == visited.end()){
@@ -34,6 +35,7 @@ public:
             else
                 newNode->neighbors.push_back(it->second);
         }
+        
         return newNode;
     }
     
