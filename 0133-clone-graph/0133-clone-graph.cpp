@@ -22,26 +22,26 @@ public:
 class Solution {
 public:
     
-    Node* helper(Node* node, unordered_map<int, Node*> &visited){
+    Node* helper(Node* node, unordered_map<int,Node*>& visited){
         Node* newNode = new Node(node->val);
         visited.insert({newNode->val, newNode});
         
-        for (Node* n: node->neighbors){
+        for(Node* n: node->neighbors){
             auto it = visited.find(n->val);
-            if (it==visited.end()){
+            if (it == visited.end()){
                 Node* clone = helper(n, visited);
                 newNode->neighbors.push_back(clone);
             }
             else
                 newNode->neighbors.push_back(it->second);
         }
-        
         return newNode;
     }
     
+    
     Node* cloneGraph(Node* node) {
         if (!node) return 0;
-        unordered_map<int,Node*> visited;
+        unordered_map<int, Node*> visited;
         return helper(node, visited);
     }
 };
