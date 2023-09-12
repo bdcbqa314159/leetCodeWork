@@ -1,39 +1,35 @@
 class Solution {
 public:
-  int numIslands(vector<vector<char>>& grid) {
-    int nr = grid.size();
-    if (!nr) return 0;
-    int nc = grid[0].size();
-
-    int num_islands = 0;
-    for (int r = 0; r < nr; ++r) {
-      for (int c = 0; c < nc; ++c) {
-        if (grid[r][c] == '1') {
-          ++num_islands;
-          grid[r][c] = '0'; // mark as visited
-          queue<pair<int, int>> neighbors;
-          neighbors.push({r, c});
-          while (!neighbors.empty()) {
-            auto rc = neighbors.front();
-            neighbors.pop();
-            int row = rc.first, col = rc.second;
-            if (row - 1 >= 0 && grid[row-1][col] == '1') {
-              neighbors.push({row-1, col}); grid[row-1][col] = '0';
+    int numIslands(vector<vector<char>>& grid) {
+        int r = grid.size();
+        int c = grid[0].size();
+        
+        int ans = 0;
+        vector<vector<bool>> visited(r, vector<bool>(c, false));
+        queue<pair<int,int>> q;
+        vector<vector<int>>dir = {{0,1}, {0,-1}, {-1,0},{1,0}};
+        
+        for (int i = 0; i<r; i++){
+            for (int j = 0; j<c; j++){
+                if (grid[i][j] == '0' || visited[i][j])
+                    continue;
+                else{
+                    ans++;
+                    q.push(make_pair(i,j));
+                    
+                    while(q.size()){
+                        int x = q.front().first;
+                        int y = q.front().second;
+                        q.pop();
+                        if (x<0||x>=r||y<0||y>=c||visited[x][y]||grid[x][y]=='0')
+                            continue;
+                        visited[x][y] = true;
+                        for (int d = 0; d<dir.size(); d++)
+                            q.push(make_pair(x+dir[d][0], y+dir[d][1]));
+                    }
+                }
             }
-            if (row + 1 < nr && grid[row+1][col] == '1') {
-              neighbors.push({row+1, col}); grid[row+1][col] = '0';
-            }
-            if (col - 1 >= 0 && grid[row][col-1] == '1') {
-              neighbors.push({row, col-1}); grid[row][col-1] = '0';
-            }
-            if (col + 1 < nc && grid[row][col+1] == '1') {
-              neighbors.push({row, col+1}); grid[row][col+1] = '0';
-            }
-          }
         }
-      }
+        return ans;
     }
-
-    return num_islands;
-  }
 };
