@@ -12,7 +12,7 @@
 class Solution {
 public:
     
-    void helper(TreeNode* root, vector<int> &ans){
+    void helper(TreeNode* root, vector<int>& ans){
         if (!root) return;
         helper(root->left, ans);
         ans.push_back(root->val);
