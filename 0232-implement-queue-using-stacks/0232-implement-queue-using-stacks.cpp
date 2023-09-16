@@ -16,7 +16,6 @@ public:
             a.push(b.top());
             b.pop();
         }
-        
     }
     
     int pop() {
