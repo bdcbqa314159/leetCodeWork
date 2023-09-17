@@ -26,6 +26,7 @@ public:
         while(!q.empty()){
             pair<int,int> node = q.front();
             q.pop();
+            
             for (int t = 0; t<4; t++){
                 pair<int,int> neighbor = {node.first+dx[t], node.second+dy[t]};
                 if (isValid(neighbor, n, m) && dist[neighbor.first][neighbor.second] == -1){
