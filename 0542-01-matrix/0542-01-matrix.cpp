@@ -29,7 +29,7 @@ public:
             
             for (int t = 0; t<4; t++){
                 pair<int,int> neighbor = {node.first+dx[t], node.second+dy[t]};
-                if (isValid(neighbor, n, m) && dist[neighbor.first][neighbor.second] == -1){
+                if (isValid(neighbor, n,m) && dist[neighbor.first][neighbor.second] == -1){
                     dist[neighbor.first][neighbor.second] = dist[node.first][node.second]+1;
                     q.push(neighbor);
                 }
