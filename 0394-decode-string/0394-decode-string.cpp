@@ -8,24 +8,25 @@ public:
         
         for (auto ch: s){
             if (isdigit(ch))
-                k = k*10+ch-'0';
+                k = 10*k+ch-'0';
             else if (ch == '['){
                 counter.push(k);
                 strings.push(current);
                 current = "";
                 k = 0;
             }
-            else if (ch==']'){
+            else if (ch == ']'){
                 string decoded = strings.top();
                 strings.pop();
                 for (int count = counter.top(); count>0; count--)
-                    decoded+=current;
+                    decoded += current;
                 counter.pop();
                 current = decoded;
             }
             else
-                current+=ch;
+                current += ch;
         }
+        
         
         return current;
     }
