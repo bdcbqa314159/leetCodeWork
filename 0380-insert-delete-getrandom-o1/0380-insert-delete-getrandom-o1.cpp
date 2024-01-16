@@ -12,12 +12,6 @@ public:
         return mp.find(val)!=mp.end();
     }
     
-    // bool insert(int val) {
-    //     if (search(val)) return false;
-    //     v.push_back(val);
-    //     mp[val] = v.size()-1;
-    //     return true;
-    // }
         
     bool insert(int val) {
         if (search(val)) return false;
